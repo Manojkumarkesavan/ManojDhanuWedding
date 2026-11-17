@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice" fill="none">
+  <defs>
+    <linearGradient id="sky" x1="800" y1="0" x2="800" y2="690" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#E8E9DF"/>
+      <stop offset=".58" stop-color="#F8EDDA"/>
+      <stop offset="1" stop-color="#E8C99D"/>
+    </linearGradient>
+    <radialGradient id="haze">
+      <stop stop-color="#FFF7DF" stop-opacity=".85"/>
+      <stop offset="1" stop-color="#FFF7DF" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="field" x1="800" y1="600" x2="800" y2="1000" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#D8BF7F"/>
+      <stop offset="1" stop-color="#9B8C55"/>
+    </linearGradient>
+    <linearGradient id="road" x1="950" y1="635" x2="700" y2="1000" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#E7D4AA"/>
+      <stop offset=".55" stop-color="#F4E4C5"/>
+      <stop offset="1" stop-color="#C6A875"/>
+    </linearGradient>
+    <linearGradient id="tree" x1="0" y1="0" x2="240" y2="600" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#244E48"/>
+      <stop offset="1" stop-color="#6D7D57"/>
+    </linearGradient>
+    <g id="cypress">
+      <path d="M0 0c-6-27-17-35-15-58-14-17-7-34-10-49-9-28 5-49 9-71 5-26 8-54 16-79 9 26 11 53 16 79 4 22 18 43 9 71-3 15 4 32-10 49C17-35 6-27 0 0Z" fill="currentColor"/>
+      <path d="M0-164V9" stroke="#6F6C4A" stroke-width="3"/>
+    </g>
+    <g id="wheat" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+      <path d="M0 0Q5-55-3-109"/>
+      <path d="M-3-99q-16-3-13-18 13 3 13 18Zm1 13q14-7 11-21-12 7-11 21Zm1 10q-16-2-15-17 14 4 15 17Zm1 12q14-6 12-20-13 6-12 20Zm2 11q-15-2-16-16 14 3 16 16Z" fill="currentColor" stroke="none"/>
+      <path d="M-3-109v-16"/>
+    </g>
+    <g id="branch" fill="currentColor">
+      <path d="M0 0C45 10 91-4 145-49" stroke="currentColor" stroke-width="3"/>
+      <ellipse cx="24" cy="-7" rx="8" ry="22" transform="rotate(-34 24 -7)"/>
+      <ellipse cx="46" cy="8" rx="8" ry="22" transform="rotate(65 46 8)"/>
+      <ellipse cx="65" cy="-20" rx="8" ry="23" transform="rotate(-25 65 -20)"/>
+      <ellipse cx="90" cy="-5" rx="8" ry="23" transform="rotate(61 90 -5)"/>
+      <ellipse cx="107" cy="-42" rx="8" ry="22" transform="rotate(-17 107 -42)"/>
+      <ellipse cx="132" cy="-27" rx="8" ry="23" transform="rotate(52 132 -27)"/>
+      <ellipse cx="150" cy="-55" rx="8" ry="23" transform="rotate(37 150 -55)"/>
+    </g>
+  </defs>
+  <path fill="url(#sky)" d="M0 0h1600v1000H0z"/>
+  <ellipse cx="1115" cy="456" rx="400" ry="360" fill="url(#haze)"/>
+  <circle cx="1195" cy="480" r="48" fill="#FFF6DA" opacity=".75"/>
+  <g stroke="#FFF9ED" stroke-linecap="round" opacity=".45">
+    <path d="M65 220c103-15 196-12 291 0m-236 19c52-6 104-5 162-1" stroke-width="3"/>
+    <path d="M1148 143c132-12 270-3 406 16" stroke-width="2"/>
+  </g>
+  <path d="M0 574c146-51 256-11 377-16 192-8 269-83 448-56 178 28 233 62 385 32 169-33 256-35 390-6v472H0Z" fill="#A7AD8D" opacity=".36"/>
+  <path d="M0 612c197-65 317-9 495-31 184-23 268-7 429 14 216 27 430-54 676-23v428H0Z" fill="#9AAB8C" opacity=".65"/>
+  <path d="M0 659c173-62 314-58 515-19 180 34 259-16 441-15 213 1 400-13 644 17v358H0Z" fill="url(#field)"/>
+  <path d="M0 744c222-113 404-82 638-59M0 823c221-120 375-118 559-110M1094 683c155 7 311 44 506 117m-554-79c183 29 361 89 554 186" stroke="#EEE0AB" stroke-width="3" opacity=".45"/>
+  <path d="M938 625c-23 44-86 73-122 111-61 64 218 88 122 149-49 31-163 61-247 115H361c96-97 322-120 382-148 107-50-82-78 21-140 55-32 132-59 164-87Z" fill="url(#road)"/>
+  <path d="M938 627c-23 42-86 71-122 109-61 64 218 88 122 149-49 31-163 61-247 115" stroke="#FBEDCC" stroke-width="5" opacity=".65"/>
+  <path d="M928 626c-32 38-109 65-164 97-103 62 86 90-21 140-60 28-286 51-382 137" stroke="#A48F5E" stroke-width="3" opacity=".38"/>
+  <g color="#64775C">
+    <use href="#cypress" transform="translate(1051 654) scale(.24)"/>
+    <use href="#cypress" transform="translate(1100 660) scale(.31)"/>
+    <use href="#cypress" transform="translate(1170 674) scale(.4)"/>
+    <use href="#cypress" transform="translate(1265 697) scale(.53)"/>
+    <use href="#cypress" transform="translate(1394 733) scale(.69)"/>
+    <use href="#cypress" transform="translate(1563 786) scale(.9)"/>
+  </g>
+  <path d="M0 948c131-39 251-18 361 52H0Zm1032 52c195-87 398-73 568-115v115Z" fill="#8B8853" opacity=".55"/>
+  <path d="M0 612C66 565 83 508 86 436c3-82-22-179-9-286l27-7c-8 135 24 198 18 295-4 95-28 169-48 233L0 690Z" fill="#6C7150"/>
+  <path d="M100 385C144 303 188 248 272 201M96 294C47 235 31 208 0 191" stroke="#6C7150" stroke-width="16"/>
+  <path d="M0 0h267c69 24 105 59 96 106 54 14 64 62 34 96-45 48-110 38-145 16-28 41-89 45-126 14-50 31-89 27-126 7Z" fill="url(#tree)"/>
+  <path d="M0 76c65-33 109-22 155 2 45-26 97-11 114 23 59-4 83 16 95 40" stroke="#9AAB7D" stroke-width="28" opacity=".16"/>
+  <g color="#52705B" opacity=".85">
+    <use href="#branch" transform="translate(55 219) rotate(63) scale(.8)"/>
+    <use href="#branch" transform="translate(270 188) rotate(70) scale(.72)"/>
+    <use href="#branch" transform="translate(1590 40) rotate(143) scale(1.4)"/>
+    <use href="#branch" transform="translate(1610 96) rotate(168) scale(1.15)"/>
+  </g>
+  <g color="#D6B56F">
+    <use href="#wheat" transform="translate(59 1008) rotate(-13) scale(1.55)"/>
+    <use href="#wheat" transform="translate(109 1007) rotate(8) scale(1.2)"/>
+    <use href="#wheat" transform="translate(161 1006) rotate(-19) scale(.95)"/>
+    <use href="#wheat" transform="translate(1439 1008) rotate(-9) scale(.95)"/>
+    <use href="#wheat" transform="translate(1500 1007) rotate(15) scale(1.4)"/>
+    <use href="#wheat" transform="translate(1551 1009) rotate(-8) scale(1.65)"/>
+  </g>
+  <g color="#F1DBA6" opacity=".65">
+    <use href="#wheat" transform="translate(14 1004) rotate(-24)"/>
+    <use href="#wheat" transform="translate(204 1006) rotate(12) scale(.65)"/>
+    <use href="#wheat" transform="translate(1378 1005) rotate(-18) scale(.7)"/>
+  </g>
+</svg>

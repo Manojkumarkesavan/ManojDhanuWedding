@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice" fill="none">
+  <defs>
+    <linearGradient id="sky" x1="800" y1="0" x2="800" y2="680" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#E9E8DF"/>
+      <stop offset=".48" stop-color="#F8E8D6"/>
+      <stop offset="1" stop-color="#EAB698"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0" cy="0" r="1" gradientTransform="translate(1210 465) rotate(90) scale(380 490)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFF8DE" stop-opacity=".85"/>
+      <stop offset="1" stop-color="#FFF8DE" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="sea" x1="800" y1="577" x2="800" y2="903" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#73928C"/>
+      <stop offset=".5" stop-color="#9FB4A5"/>
+      <stop offset="1" stop-color="#D2CFB4"/>
+    </linearGradient>
+    <linearGradient id="sand" x1="700" y1="780" x2="800" y2="1000" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F3E2C7"/>
+      <stop offset="1" stop-color="#CEB58C"/>
+    </linearGradient>
+    <linearGradient id="reflection" x1="1200" y1="578" x2="1100" y2="858" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFF1C9" stop-opacity=".72"/>
+      <stop offset="1" stop-color="#FFF1C9" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="palmInk" x1="0" y1="0" x2="200" y2="650" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#244E48"/>
+      <stop offset="1" stop-color="#547363"/>
+    </linearGradient>
+    <g id="frond" fill="currentColor">
+      <path d="M0 0C75-60 180-52 263 8 166-24 80-24 0 0Z"/>
+      <path d="M18-7 58-43 50-8 83-51 76-10 110-51 101-9 138-45 128-7 165-35 157-2 194-21 183 3 222-3 207 9 250 8 227 15C143-5 80-16 18-7Z"/>
+    </g>
+    <g id="grass" stroke="currentColor" stroke-linecap="round">
+      <path d="M0 0Q-2-70-30-115M0 0Q12-82 40-137M0 0Q2-110-6-160M0 0Q31-60 65-77M0 0Q-28-67-58-80" stroke-width="2"/>
+      <path d="m-31-113-5-21m77-1 6-24m-53-1-2-27m73 110 15-12" stroke-width="5"/>
+    </g>
+  </defs>
+  <path fill="url(#sky)" d="M0 0h1600v1000H0z"/>
+  <path fill="url(#glow)" d="M0 0h1600v850H0z"/>
+  <g stroke="#FFF8ED" stroke-linecap="round" opacity=".35">
+    <path d="M28 247c124-20 240-17 353-4m-210 34c86-9 147-8 205-2" stroke-width="4"/>
+    <path d="M1100 158c170-17 324-4 500 21m-242 16c86 0 161 7 242 18" stroke-width="3"/>
+  </g>
+  <circle cx="1210" cy="488" r="67" fill="#FFF2CD" opacity=".9"/>
+  <path d="M0 575c111-29 182-10 259-14 102-6 146-24 245-14 76 8 109 26 188 29H0Z" fill="#8D9A8B" opacity=".28"/>
+  <path d="M0 582c365-12 647-1 860-5 259-5 495-5 740 3v420H0Z" fill="url(#sea)"/>
+  <path d="m1181 580-70 82 54 11-95 53 72 9-134 89 292 21-111-102 62-14-79-55 43-12-43-82Z" fill="url(#reflection)"/>
+  <g stroke="#FDF2D7" stroke-linecap="round">
+    <path d="M15 603h218m71 0h92m448-5h178m109 3h235m-122 17h214M84 638h287m56 2h171m224-8h176m-545 42h260m294-17h251" opacity=".35"/>
+    <path d="M1048 616h146m38 0h47m-194 20h183m-254 25h219m-185 26h196" opacity=".55" stroke-width="2"/>
+    <path d="M-50 731c187-42 320 27 504 12 226-20 279-67 495-43 230 26 430-14 699-35" opacity=".38" stroke-width="2"/>
+  </g>
+  <path d="M0 845c230-92 373-5 571-33 252-36 401-55 641-17 144 23 264 21 388-12v217H0Z" fill="url(#sand)"/>
+  <path d="M0 827c237-73 387 9 578-22 236-37 425-50 639-16 161 26 273 11 383-18" stroke="#FFF6E5" stroke-width="8" opacity=".7"/>
+  <path d="M0 849c216-63 362 14 557-11 236-29 415-59 660-18 159 27 255 14 383-12" stroke="#B6B19A" stroke-width="2" opacity=".42"/>
+  <path d="M0 929c131-37 258-30 409 71H0Z" fill="#BFA881" opacity=".55"/>
+  <path d="M1281 1000c123-81 223-105 319-92v92Z" fill="#C5AE86" opacity=".7"/>
+  <g fill="url(#palmInk)">
+    <path d="M39 1000C58 811 104 538 135 311l20-4C137 525 101 817 93 1000Z"/>
+    <path d="M143 320C91 249 37 220-34 235c64 6 115 39 166 98Z"/>
+    <path d="M145 315c-27-112-76-174-145-188 55 35 96 95 131 194Z"/>
+  </g>
+  <g color="#315A50">
+    <use href="#frond" transform="translate(143 317) rotate(-17) scale(1.17)"/>
+    <use href="#frond" transform="translate(144 317) rotate(22) scale(1.05)"/>
+    <use href="#frond" transform="translate(142 313) rotate(-58) scale(.9)"/>
+    <use href="#frond" transform="translate(141 316) rotate(168) scale(.95)"/>
+    <use href="#frond" transform="translate(145 320) rotate(119) scale(.7)"/>
+  </g>
+  <g color="#45685B" opacity=".9">
+    <use href="#frond" transform="translate(1648 82) rotate(165) scale(1.55)"/>
+    <use href="#frond" transform="translate(1632 92) rotate(124) scale(1.4)"/>
+    <use href="#frond" transform="translate(1620 72) rotate(191) scale(1.2)"/>
+  </g>
+  <g color="#6E7959">
+    <use href="#grass" transform="translate(1510 1007) scale(1.1)"/>
+    <use href="#grass" transform="translate(1432 1015) rotate(-12) scale(.68)"/>
+    <use href="#grass" transform="translate(198 1010) rotate(17) scale(.62)"/>
+  </g>
+  <g fill="#F8EBD1" opacity=".7">
+    <ellipse cx="361" cy="929" rx="5" ry="2" transform="rotate(-16 361 929)"/>
+    <ellipse cx="1237" cy="921" rx="4" ry="2"/>
+    <ellipse cx="1088" cy="972" rx="6" ry="2" transform="rotate(12 1088 972)"/>
+  </g>
+</svg>
