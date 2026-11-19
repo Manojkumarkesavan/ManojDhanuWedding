@@ -8,7 +8,7 @@ See `prompt.md` for a complete specification to recreate this site from scratch,
 
 ## Run and deploy
 
-Serve this folder with any static web server, for example `python3 -m http.server 8000 --directory WeddingHTML`, then open `http://localhost:8000/`. JavaScript modules may not load when the page is opened directly as a `file://` URL. Deploy the contents of this folder to any static host, including a subdirectory.
+Serve this folder with any static web server, for example run `python3 -m http.server 8000` from this folder, then open `http://localhost:8000/`. JavaScript modules may not load when the page is opened directly as a `file://` URL. Deploy the contents of this folder to any static host, including a subdirectory.
 
 ## Configure
 
