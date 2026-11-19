@@ -21,10 +21,16 @@ The invitation uses four content-led scenes: Welcome, Save the Date (including t
   - If you replace `beach.svg`, `beach-mobile.svg`, `mandapam.svg` or `mandapam-mobile.svg`, update the waterline, roof and garland measurements at the top of `main.js` (`beachArt`, `MANDAPAM_ROOF`). The animated shimmer and the heading clearance depend on them.
 - **Placeholder assets are currently installed.** Replace them before guest release:
   - **Couple art:** `assets/images/couple/couple-beach.svg`, `couple-wedding.svg`, `couple-portrait.svg` and `motorcycle.svg` are original, generic flat illustrations. Replace them with flat-style illustrations of the couple (see "Couple artwork" below), keeping the same file names or updating the paths in `config.js`. Couple art is capped at 28% of the viewport height so the closing scene fits on one screen.
-  - **Gallery:** the 15 photos in `assets/gallery/` are stock wedding photos from Unsplash (Unsplash License), not the couple. Each entry in `config.js` records its `source`. Replace them with the real photos (WebP or AVIF, full size plus `-thumb`) and update the entries.
+  - **Gallery:** 21 pre-wedding photos of Manoj and Dhanushri live together in `assets/gallery/`. Original JPGs are kept alongside optimized WebP display and thumbnail files; no stock photos are used.
   - **Music:** `assets/music/wedding-background.m4a` is an original synthesized veena-and-tanpura loop in raga Mohanam (58 seconds, royalty-free). To use a different licensed track, change `music` in `config.js`. The player never autoplays.
-- **Gallery layout:** an interactive polaroid board designed for 6–15 photos that fits on one screen. On desktop and tablet the photos are scattered and tilted; hovering lifts one, tapping opens it full screen and "Shuffle photos" re-scatters them. On phones (and short landscape screens) they form a stack: swipe the top photo away or tap "Next photo", and tap to open. Keep captions to a few words; they appear on the polaroid strip. Previews are square crops of the thumbnail; the full photo is shown uncropped in the viewer.
+- **Gallery layout:** photo order is randomized each time the gallery loads. The polaroid board adapts its columns and card size to the photo count and available space. On desktop and tablet the photos are scattered and tilted; hovering lifts one, tapping opens it full screen and "Shuffle photos" re-scatters them. On phones (and short landscape screens) they form a stack: swipe the top photo away or tap "Next photo", and tap to open. Keep captions to a few words; they appear on the polaroid strip. Previews are square crops of the thumbnail; the full photo is shown uncropped in the viewer.
 - Confirm the Google Maps search result with the venue before sharing; no unverified place ID or coordinates have been supplied.
+
+### Remove gallery photos
+
+1. In `config.js`, remove the entire unwanted photo entry from `gallery.entries`. The gallery layout adjusts automatically to the remaining photos.
+2. Optionally remove that photo's files from `assets/gallery/`: its original `.JPG`, full-size `.webp` and `-thumb.webp` thumbnail. Keep them if you may want to add the photo back later.
+3. If you delete the files, make sure no remaining entry in `gallery.entries` refers to them.
 
 ## Couple artwork: illustrations vs. original photos
 

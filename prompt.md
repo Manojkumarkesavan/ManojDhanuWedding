@@ -129,17 +129,10 @@ export const wedding = {
 };
 
 export const gallery = {
-  categories: [
-    { id: 'pre-wedding', label: 'Pre-Wedding' },
-    { id: 'couple-portraits', label: 'Couple Portraits' },
-    { id: 'candid-moments', label: 'Candid Moments' },
-    { id: 'special-memories', label: 'Special Memories' },
-  ],
-  // TODO: Add supplied photos under assets/gallery/ and configure entries.
-  // Example: { id: 'photo-01', image: 'gallery/featured/photo-01.webp',
-  // thumbnail: 'gallery/featured/photo-01-thumb.webp', category: 'pre-wedding',
-  // caption: 'A moment to remember', alt: 'Manoj and Dhanushri together',
-  // featured: true, displayOrder: 1, orientation: 'portrait', width: 1200, height: 1600 }
+  // Keep supplied photo originals, WebP images and thumbnails together in assets/gallery/.
+  // Example: { id: 'photo-01', image: 'gallery/photo-01.webp',
+  // thumbnail: 'gallery/photo-01-thumb.webp', caption: 'A moment to remember',
+  // alt: 'Manoj and Dhanushri together', displayOrder: 1, orientation: 'portrait' }
   entries: [],
   watermark: '', // Optional subtle watermark, e.g. 'Manoj & Dhanushri'
 };
@@ -639,11 +632,12 @@ Export `initGallery(root, config, assetUrl)`, which returns a `destroy()` cleanu
   - the eyebrow "Our Pre-Wedding Memories";
   - the h2 "Moments Before Forever" with a unique id used for `aria-labelledby`;
   - the subtitle "A little glimpse into our journey, the laughter, the love and the memories we'll cherish forever."
-- **No filters.** The gallery is designed for 6–15 photos, so every entry is shown together; `categories` is still validated but not rendered.
+- **No filters or categories.** Every configured entry is shown together. Each entry requires a unique id, alt text, display order and orientation.
 - **Status:** a `role="status"` live region reading "N photographs shown."
 - **Polaroid board** (`.gallery-board`, `data-gallery-reveal`), laid out by `layoutBoard()`:
-  - **Scatter mode** (default): a jittered grid. Columns are the count for ≤4 photos, 3 for ≤6, 4 for ≤10 and 5 above. JS sets `--cols`, `--rows` and, per card, `--x`/`--y` (0–1 fractions of the free space, ±0.22/±0.18 cell jitter), `--r` (tilt ±9°) and a random `z-index`. A seeded PRNG (`seeded()`, Park–Miller) keeps layouts stable until shuffled. The last row is centred.
-  - Board CSS: `--board-w: min(100vw − 2.5rem, 1200px)`; `--board-h: clamp(300px, 100svh − 460px, 640px)` so the heading, board, controls and closing line fit one screen; `--card-w` = the smallest of `board-w / cols × 1.05`, `board-h / (1 + (rows − 1) × 0.64) / 1.22` and 210px; `--card-h = card-w × 1.22`. Cards are positioned with `left: calc(card-w/2 + (100% − card-w) × x)` and the same for `top`, so they never leave the board.
+  - Entries are Fisher–Yates shuffled on gallery initialization, so each page load can present a different photo order.
+  - **Scatter mode** (default): a jittered grid. JS checks column counts from 1 to the photo count and chooses the arrangement that allows the largest cards within the board dimensions; the last row is centred. A seeded PRNG (`seeded()`, Park–Miller) keeps layouts stable until shuffled.
+  - Board CSS: `--board-w: min(100vw − 2.5rem, 1200px)`; `--board-h: clamp(300px, 100svh − 460px, 640px)`. Card width is bounded by the chosen column count, row count, board dimensions and a 210px cap. Positions leave room for the cards' ±9° rotation so their bounds stay inside the board.
   - Cards use the individual `translate: -50% -50%` and `rotate: var(--r)` properties (not `transform`), so GSAP reveals cannot clobber them. Hover or focus-within (scatter mode only) sets `rotate: 0`, `scale: 1.1` and `z-index: 50 !important`. `left`, `top` and `rotate` transition over 0.7s so shuffling glides.
   - **Stack mode** when `(max-width: 600px), (max-height: 500px)` matches: cards pile in the centre (`--card-w: min(72vw, 290px, 100svh − 120px)`), the top card straight and the rest tilted ±6°; only 4 are visible (`.is-buried`) and only the top card is tabbable. Pointer-drag the top card horizontally (8px threshold, `touch-action: pan-y`, pointer capture); beyond 70px it is flung off (`.is-flung`, 0.32s, instant under reduced motion) and moved to the bottom. Suppress the click for 400ms after a drag so a swipe never opens the lightbox. Re-layout on the media-query `change` event.
   - **Controls:** a pill button `.gallery-shuffle` ("Shuffle photos" re-seeds and Fisher–Yates shuffles; in stack mode it reads "Next photo") and a hint (`aria-live`): "Tap a photo to open it" or "Swipe or tap · N of M".

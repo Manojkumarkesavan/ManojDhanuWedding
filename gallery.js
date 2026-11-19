@@ -44,6 +44,15 @@ function button(className, label, iconName) {
   return node;
 }
 
+function randomized(items) {
+  const shuffled = [...items];
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+  return shuffled;
+}
+
 function localSource(path, assetUrl) {
   if (typeof path !== 'string' || !path.trim() || /[\\?#]/.test(path)) {
     throw new TypeError('Gallery images must use a local public-directory path.');
@@ -66,7 +75,7 @@ function localSource(path, assetUrl) {
 }
 
 /**
- * Mount a dependency-free gallery. Categories and entries follow src/data/gallery.ts.
+ * Mount a dependency-free gallery from locally hosted photo entries.
  * Optional heading, subtitle, label and closingLine override the original copy.
  * Returns a cleanup function; initializing the same section again cleans it up first.
  */
@@ -74,26 +83,18 @@ export function initGallery(root, config, assetUrl) {
   if (!(root instanceof HTMLElement) || root.tagName !== 'SECTION') {
     throw new TypeError('initGallery requires a section element.');
   }
-  if (!config || !Array.isArray(config.categories) || !Array.isArray(config.entries) ||
+  if (!config || !Array.isArray(config.entries) ||
       typeof assetUrl !== 'function') {
-    throw new TypeError('initGallery requires categories, entries and an assetUrl function.');
+    throw new TypeError('initGallery requires entries and an assetUrl function.');
   }
   const ids = new Set();
   for (const entry of config.entries) {
     if (!entry || typeof entry.id !== 'string' || ids.has(entry.id) ||
-        typeof entry.category !== 'string' || typeof entry.alt !== 'string' ||
+        typeof entry.alt !== 'string' ||
         !Number.isFinite(entry.displayOrder) || !orientations.has(entry.orientation)) {
-      throw new TypeError('Gallery entries require unique IDs, category, alt, displayOrder and orientation.');
+      throw new TypeError('Gallery entries require unique IDs, alt, displayOrder and orientation.');
     }
     ids.add(entry.id);
-  }
-  const categoryIds = new Set();
-  for (const category of config.categories) {
-    if (!category || typeof category.id !== 'string' || typeof category.label !== 'string' ||
-        categoryIds.has(category.id)) {
-      throw new TypeError('Gallery categories require unique IDs and labels.');
-    }
-    categoryIds.add(category.id);
   }
 
   instances.get(root)?.();
@@ -101,7 +102,7 @@ export function initGallery(root, config, assetUrl) {
   const events = new AbortController();
   const listen = (node, type, callback, options = {}) =>
     node.addEventListener(type, callback, { ...options, signal: events.signal });
-  const entries = [...config.entries].sort((a, b) => a.displayOrder - b.displayOrder);
+  const entries = randomized([...config.entries].sort((a, b) => a.displayOrder - b.displayOrder));
   const oldLabel = root.getAttribute('aria-labelledby');
   const hadClass = root.classList.contains('wedding-gallery');
   root.classList.add('wedding-gallery');
@@ -194,10 +195,26 @@ export function initGallery(root, config, assetUrl) {
     const random = seeded(scatter.seed * 7919 + 1);
     const stacked = Boolean(stackQuery?.matches);
     const count = cards.length;
-    const columns = Math.min(count, count <= 4 ? count : count <= 6 ? 3 : count <= 10 ? 4 : 5);
-    const rows = Math.ceil(count / columns);
     const boardWidth = board.clientWidth;
     const boardHeight = board.clientHeight;
+    let columns = 1;
+    let rows = count;
+    if (!stacked) {
+      let widestCard = 0;
+      for (let candidate = 1; candidate <= count; candidate++) {
+        const candidateRows = Math.ceil(count / candidate);
+        const candidateWidth = Math.min(
+          boardWidth / candidate * 1.05,
+          boardHeight / (1 + (candidateRows - 1) * 0.64) / 1.22,
+          210,
+        );
+        if (candidateWidth > widestCard) {
+          columns = candidate;
+          rows = candidateRows;
+          widestCard = candidateWidth;
+        }
+      }
+    }
     const cardWidth = stacked
       ? Math.min(window.innerWidth * 0.72, 290, window.innerHeight - 120, (boardHeight - 32) / 1.32)
       : Math.min(
