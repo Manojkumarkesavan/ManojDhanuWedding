@@ -102,7 +102,11 @@ export function initGallery(root, config, assetUrl) {
   const events = new AbortController();
   const listen = (node, type, callback, options = {}) =>
     node.addEventListener(type, callback, { ...options, signal: events.signal });
-  const entries = randomized([...config.entries].sort((a, b) => a.displayOrder - b.displayOrder));
+  const sortedEntries = [...config.entries].sort((a, b) => a.displayOrder - b.displayOrder);
+  const pinnedEntry = sortedEntries.find((entry) => entry.id === '1Q7A0233');
+  const entries = pinnedEntry
+    ? [pinnedEntry, ...randomized(sortedEntries.filter((entry) => entry !== pinnedEntry))]
+    : randomized(sortedEntries);
   const oldLabel = root.getAttribute('aria-labelledby');
   const hadClass = root.classList.contains('wedding-gallery');
   root.classList.add('wedding-gallery');
