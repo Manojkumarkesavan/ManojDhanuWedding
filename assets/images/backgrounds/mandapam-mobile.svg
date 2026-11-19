@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="none">
+  <!-- Responsive portrait frame: no viewBox, so roof, pillars, lamps and floor stay pinned to the edges without distortion. -->
+  <style>@media (max-width: 480px) { .detail { display: none; } }</style>
+  <defs>
+    <linearGradient id="air" x2="0" y2="1"><stop stop-color="#ede1c5"/><stop offset=".4" stop-color="#fff7e5"/><stop offset="1" stop-color="#e4d0aa"/></linearGradient>
+    <linearGradient id="gold"><stop stop-color="#9d7945"/><stop offset=".4" stop-color="#eed5a0"/><stop offset=".7" stop-color="#c4a060"/><stop offset="1" stop-color="#917044"/></linearGradient>
+    <linearGradient id="band" x2="0" y2="1"><stop stop-color="#e9cf95"/><stop offset=".5" stop-color="#c4a060"/><stop offset="1" stop-color="#8f6d40"/></linearGradient>
+    <pattern id="zig" width="50" height="24" patternUnits="userSpaceOnUse"><path d="m0 18 25-12 25 12" stroke="#d6b56f" stroke-opacity=".7"/></pattern>
+    <g id="capital"><path d="M0 0h46v20H0zm5 20h36l-5 26H10z" fill="url(#gold)"/><path d="M5 10h36" stroke="#896a3d"/></g>
+    <g id="shaft"><rect x="10" width="26" height="100%" fill="url(#gold)"/><rect x="18" width="1" height="100%" fill="#fff0c7" fill-opacity=".5"/><rect x="28" width="1" height="100%" fill="#fff0c7" fill-opacity=".5"/></g>
+    <g id="base"><path d="M8-46h30v18H8zM2-28h44V0H2z" fill="url(#gold)"/><path d="M6-14h36" stroke="#896a3d"/></g>
+    <g id="flowers"><path d="M0 0v95" stroke="#ac8b55"/><path d="M0 5v76" stroke="#fff4d8" stroke-width="10" stroke-dasharray="8 3"/><circle cy="90" r="7" fill="#d2a653"/></g>
+    <g id="flowersSmall"><path d="M0 0v66" stroke="#ac8b55"/><path d="M0 4v53" stroke="#fff4d8" stroke-width="7" stroke-dasharray="6 2"/><circle cy="63" r="5" fill="#d2a653"/></g>
+    <g id="lamp"><path d="M0 0v80m-15 2h30l-7 8H-8zm15 8v82m-18 5h36l9 7h-54Z" stroke="#b48b48" stroke-width="2" fill="#d6b56f"/><ellipse cy="81" rx="19" ry="4" fill="#e8c887"/><path d="M0 75c-8-7-4-14 0-20 5 8 7 14 0 20Z" fill="#efbe72"/></g>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#air)"/>
+
+  <rect width="100%" height="92" fill="#28544a"/>
+  <rect y="19.5" width="100%" height="1" fill="#d6b56f" fill-opacity=".7"/>
+  <rect y="64.5" width="100%" height="1" fill="#d6b56f" fill-opacity=".7"/>
+  <rect y="25" width="100%" height="24" fill="url(#zig)"/>
+  <rect y="88" width="100%" height="17" fill="url(#band)"/>
+
+  <svg x="12" y="105" overflow="visible"><use href="#shaft"/><use href="#capital"/></svg>
+  <svg x="100%" y="105" overflow="visible"><g transform="translate(-58 0)"><use href="#shaft"/><use href="#capital"/></g></svg>
+
+  <svg y="96" width="100%" height="90" viewBox="0 0 600 90" preserveAspectRatio="none">
+    <path d="M36 7q264 82 528 0" stroke="#68805c" stroke-width="10" vector-effect="non-scaling-stroke"/>
+    <path d="M36 13q264 82 528 0" stroke="#f2e7c7" stroke-width="7" stroke-dasharray="8 4" vector-effect="non-scaling-stroke"/>
+  </svg>
+  <use href="#flowers" x="19%" y="122"/><use class="detail" href="#flowersSmall" x="32%" y="138"/>
+  <use class="detail" href="#flowersSmall" x="68%" y="138"/><use href="#flowers" x="81%" y="122"/>
+
+  <svg y="100%" overflow="visible">
+    <rect y="-122" width="100%" height="12" fill="#c6a572" fill-opacity=".65"/>
+    <rect y="-110" width="100%" height="61" fill="#ead6af"/>
+    <rect y="-49" width="100%" height="5" fill="#c6a572" fill-opacity=".65"/>
+    <rect y="-20.5" width="100%" height="1" fill="#b9945d" fill-opacity=".5"/>
+    <g transform="translate(12 -122)"><use href="#base"/></g>
+    <use class="detail" href="#lamp" x="88" y="-311"/>
+  </svg>
+  <svg x="100%" y="100%" overflow="visible">
+    <g transform="translate(-58 -122)"><use href="#base"/></g>
+    <use class="detail" href="#lamp" x="-88" y="-311"/>
+  </svg>
+  <svg x="50%" y="100%" overflow="visible">
+    <path d="M-80-79q40-36 80 0 40-36 80 0-40 36-80 0-40 36-80 0Z" stroke="#b9945d" stroke-opacity=".5"/>
+  </svg>
+</svg>
