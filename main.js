@@ -21,6 +21,7 @@ setText('[data-locality]', wedding.locality);
 setText('[data-full-names]', `${wedding.groom} & ${wedding.bride}`);
 document.querySelector('[data-maps]').href = wedding.mapsUrl;
 
+let startWeddingMusic = () => {};
 const invitationIntro = document.querySelector('#invitation-intro');
 if (invitationIntro && typeof invitationIntro.showModal === 'function') {
   const envelope = invitationIntro.querySelector('.invitation-envelope');
@@ -32,6 +33,7 @@ if (invitationIntro && typeof invitationIntro.showModal === 'function') {
   };
   const dismissOnEscape = (event) => {
     event.preventDefault();
+    startWeddingMusic();
     closeIntro();
   };
   invitationIntro.addEventListener('cancel', dismissOnEscape);
@@ -39,6 +41,7 @@ if (invitationIntro && typeof invitationIntro.showModal === 'function') {
     if (event.key === 'Escape') dismissOnEscape(event);
   });
   envelope.addEventListener('click', () => {
+    startWeddingMusic();
     if (invitationIntro.classList.contains('is-opening')) return;
     if (window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches) return closeIntro();
     invitationIntro.classList.add('is-opening');
@@ -46,7 +49,10 @@ if (invitationIntro && typeof invitationIntro.showModal === 'function') {
     skipIntro.disabled = true;
     window.setTimeout(closeIntro, 3800);
   });
-  skipIntro.addEventListener('click', closeIntro);
+  skipIntro.addEventListener('click', () => {
+    startWeddingMusic();
+    closeIntro();
+  });
   invitationIntro.showModal();
 }
 
@@ -261,17 +267,37 @@ if (wedding.music) {
   const error = document.querySelector('#music-error');
   control.hidden = false;
   audio.src = assetUrl(wedding.music);
+  audio.loop = true;
+  audio.preload = 'auto';
   const updateMusic = () => {
     button.setAttribute('aria-pressed', String(!audio.paused));
     button.textContent = audio.paused ? '♫' : 'Ⅱ';
   };
+  const showMusicError = () => {
+    error.hidden = false;
+    error.textContent = 'Music could not be played.';
+  };
   audio.addEventListener('play', updateMusic);
   audio.addEventListener('pause', updateMusic);
-  audio.addEventListener('error', () => { error.hidden = false; error.textContent = 'Music could not be played.'; });
-  button.addEventListener('click', async () => {
+  audio.addEventListener('error', showMusicError);
+  startWeddingMusic = () => {
+    let playback;
+    try {
+      playback = audio.play();
+    } catch (cause) {
+      if (cause?.name !== 'NotAllowedError') showMusicError();
+      return;
+    }
+    if (playback && typeof playback.then === 'function') {
+      playback.then(() => { error.hidden = true; }).catch((cause) => {
+        if (cause?.name !== 'NotAllowedError') showMusicError();
+      });
+    }
+  };
+  startWeddingMusic();
+  button.addEventListener('click', () => {
     if (!audio.paused) { audio.pause(); return; }
-    try { await audio.play(); error.hidden = true; }
-    catch { error.hidden = false; error.textContent = 'Music could not be played.'; }
+    startWeddingMusic();
   });
 }
 
