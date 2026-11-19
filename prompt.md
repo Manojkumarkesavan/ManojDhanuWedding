@@ -635,7 +635,7 @@ Export `initGallery(root, config, assetUrl)`, which returns a `destroy()` cleanu
 - **No filters or categories.** Every configured entry is shown together. Each entry requires a unique id, alt text, display order and orientation.
 - **Status:** a `role="status"` live region reading "N photographs shown."
 - **Polaroid board** (`.gallery-board`, `data-gallery-reveal`), laid out by `layoutBoard()`:
-  - Entries are Fisher–Yates shuffled on gallery initialization, so each page load can present a different photo order.
+  - On gallery initialization, `1Q7A0233` remains first and the other entries are Fisher–Yates shuffled.
   - **Scatter mode** (default): a jittered grid. JS checks column counts from 1 to the photo count and chooses the arrangement that allows the largest cards within the board dimensions; the last row is centred. A seeded PRNG (`seeded()`, Park–Miller) keeps layouts stable until shuffled.
   - Board CSS: `--board-w: min(100vw − 2.5rem, 1200px)`; `--board-h: clamp(300px, 100svh − 460px, 640px)`. Card width is bounded by the chosen column count, row count, board dimensions and a 210px cap. Positions leave room for the cards' ±9° rotation so their bounds stay inside the board.
   - Cards use the individual `translate: -50% -50%` and `rotate: var(--r)` properties (not `transform`), so GSAP reveals cannot clobber them. Hover or focus-within (scatter mode only) sets `rotate: 0`, `scale: 1.1` and `z-index: 50 !important`. `left`, `top` and `rotate` transition over 0.7s so shuffling glides.
