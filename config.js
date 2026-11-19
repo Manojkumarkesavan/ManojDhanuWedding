@@ -1,6 +1,6 @@
 export const wedding = {
-  groom: 'K. Manojkumar',
-  bride: 'S. V. Dhanushri',
+  groom: 'Manojkumar',
+  bride: 'Dhanushri',
   names: 'Manoj & Dhanushri',
   venue: 'Sri Lakshmi Aandal Maaligai',
   locality: 'Chromepet, Chennai',
@@ -11,7 +11,7 @@ export const wedding = {
   muhurtham: { day: '14', month: 'December', year: '2026', time: '6:30 AM onwards', iso: '2026-12-14T06:30:00+05:30' },
   // Placeholder assets: original illustrations and an original instrumental (Mohanam, veena and tanpura)
   // made for this site. TODO: Replace with the couple's approved artwork and chosen music when ready.
-  music: 'music/wedding-background.m4a',
+  music: 'music/Anbil-Avan-Bgm.mp3',
   coupleBeach: 'images/couple/couple-beach.svg',
   coupleWedding: 'images/couple/couple-wedding.svg',
   couplePortrait: 'images/couple/couple-portrait.svg',
