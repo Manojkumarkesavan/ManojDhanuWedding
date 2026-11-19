@@ -218,6 +218,32 @@ if (gallery.entries.length) {
   document.querySelector('[data-gallery-link]').hidden = false;
   setText('[data-closing-number]', '04');
   initGallery(gallerySection, gallery, assetUrl);
+  const setGalleryVisibility = (visible) => {
+    document.body.classList.toggle('gallery-in-view', visible);
+    if (visible) {
+      const top = gallerySection.getBoundingClientRect().top + window.scrollY;
+      document.body.style.setProperty('--gallery-music-top', `${top}px`);
+    } else {
+      document.body.style.removeProperty('--gallery-music-top');
+    }
+  };
+  if ('IntersectionObserver' in window) {
+    const galleryObserver = new IntersectionObserver(([entry]) => {
+      setGalleryVisibility(entry.isIntersecting);
+    });
+    galleryObserver.observe(gallerySection);
+    window.addEventListener('resize', () => {
+      if (document.body.classList.contains('gallery-in-view')) setGalleryVisibility(true);
+    }, { passive: true });
+  } else {
+    const updateGalleryVisibility = () => {
+      const bounds = gallerySection.getBoundingClientRect();
+      setGalleryVisibility(bounds.bottom > 0 && bounds.top < window.innerHeight);
+    };
+    window.addEventListener('scroll', updateGalleryVisibility, { passive: true });
+    window.addEventListener('resize', updateGalleryVisibility, { passive: true });
+    updateGalleryVisibility();
+  }
 }
 
 if (window.gsap && window.ScrollTrigger) {

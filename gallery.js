@@ -198,16 +198,17 @@ export function initGallery(root, config, assetUrl) {
     const rows = Math.ceil(count / columns);
     const boardWidth = board.clientWidth;
     const boardHeight = board.clientHeight;
-    const cardWidth = stacked ? 0 : Math.min(
-      boardWidth / columns * 1.05,
-      boardHeight / (1 + (rows - 1) * 0.64) / 1.22,
-      210,
-    );
+    const cardWidth = stacked
+      ? Math.min(window.innerWidth * 0.72, 290, window.innerHeight - 120, (boardHeight - 32) / 1.32)
+      : Math.min(
+        boardWidth / columns * 1.05,
+        boardHeight / (1 + (rows - 1) * 0.64) / 1.22,
+        210,
+      );
     board.classList.toggle('is-stacked', stacked);
     board.style.setProperty('--rows', String(rows));
     board.style.setProperty('--cols', String(columns));
-    if (stacked) board.style.removeProperty('--card-w');
-    else board.style.setProperty('--card-w', `${cardWidth}px`);
+    board.style.setProperty('--card-w', `${cardWidth}px`);
     order.forEach((cardIndex, position) => {
       const card = cards[cardIndex];
       const trigger = card.querySelector('.gallery-card__button');
@@ -231,8 +232,14 @@ export function initGallery(root, config, assetUrl) {
           : 0.5;
         const x = fraction(column, columns, 0.22);
         const y = fraction(row, rows, 0.18);
-        card.style.left = `${cardWidth / 2 + (boardWidth - cardWidth) * x}px`;
-        card.style.top = `${cardWidth * 1.22 / 2 + (boardHeight - cardWidth * 1.22) * y}px`;
+        const radians = 9 * Math.PI / 180;
+        const cardHeight = cardWidth * 1.22;
+        const rotatedWidth = cardWidth * (Math.cos(radians) + 1.22 * Math.sin(radians));
+        const rotatedHeight = cardWidth * (1.22 * Math.cos(radians) + Math.sin(radians));
+        const xInset = (rotatedWidth - cardWidth) / 2 + 4;
+        const yInset = (rotatedHeight - cardHeight) / 2 + 4;
+        card.style.left = `${xInset + cardWidth / 2 + Math.max(0, boardWidth - cardWidth - 2 * xInset) * x}px`;
+        card.style.top = `${yInset + cardHeight / 2 + Math.max(0, boardHeight - cardHeight - 2 * yInset) * y}px`;
         card.style.setProperty('--r', `${tilt.toFixed(1)}deg`);
         card.style.zIndex = String(1 + Math.floor(random() * count));
         card.classList.remove('is-buried');
