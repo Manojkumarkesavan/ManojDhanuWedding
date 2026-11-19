@@ -5,6 +5,11 @@
     <linearGradient id="sand" x2="0" y2="1"><stop stop-color="#e9dcc2"/><stop offset="1" stop-color="#d6bfa0"/></linearGradient>
     <radialGradient id="glow"><stop stop-color="#fff7d9" stop-opacity=".85"/><stop offset="1" stop-color="#fff7d9" stop-opacity="0"/></radialGradient>
   </defs>
+  <style>
+    .palm-sway { transform-box: view-box; transform-origin: 45px 510px; animation: palm-sway 18s ease-in-out infinite alternate; }
+    @keyframes palm-sway { from { transform: rotate(-1deg); } to { transform: rotate(1deg); } }
+    @media (prefers-reduced-motion: reduce) { .palm-sway { animation: none; } }
+  </style>
   <path fill="url(#sky)" d="M0 0h600v680H0z"/>
   <circle cx="440" cy="610" r="180" fill="url(#glow)"/>
   <circle cx="440" cy="610" r="42" fill="#fff1ce" opacity=".8"/>
@@ -13,7 +18,7 @@
   <path d="M0 804q140-46 300 8t300-5v193H0Z" fill="url(#sand)"/>
   <g stroke="#fff9e8" opacity=".65"><path d="M0 789q140-46 300 8t300-5" stroke-width="4"/><path d="M0 805q140-46 300 8t300-5" stroke-width="2"/><path d="M15 722q100-6 210 0m110 20q100-7 230 1M60 686h130m200 8h130"/></g>
   <path d="M0 1000C20 818 16 688 45 510" stroke="#526d5b" stroke-width="15"/>
-  <g fill="#4a7263" opacity=".7">
+  <g class="palm-sway" fill="#4a7263" opacity=".7">
     <path d="M45 510C-20 435-65 420-120 442 5 436 4 497 45 510Z"/>
     <path d="M45 510C6 415 46 369 90 348 49 402 49 462 45 510Z"/>
     <path d="M45 510c17-91 74-127 144-117-83 20-96 71-144 117Z"/>

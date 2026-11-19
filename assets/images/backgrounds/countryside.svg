@@ -42,6 +42,18 @@
       <ellipse cx="150" cy="-55" rx="8" ry="23" transform="rotate(37 150 -55)"/>
     </g>
   </defs>
+  <style>
+    .tree-sway { transform-box: view-box; animation: tree-sway 24s ease-in-out infinite alternate; }
+    .tree-sway-crown { transform-origin: 86px 436px; }
+    .tree-sway-left { transform-origin: 140px 205px; animation-delay: -7s; }
+    .tree-sway-right { transform-origin: 1590px 40px; animation-delay: -13s; }
+    .crop-sway { transform-box: view-box; animation: crop-sway 18s ease-in-out infinite alternate; }
+    .crop-sway-left { transform-origin: 100px 1007px; }
+    .crop-sway-right { transform-origin: 1500px 1007px; animation-delay: -9s; }
+    @keyframes tree-sway { from { transform: rotate(-.4deg); } to { transform: rotate(.4deg); } }
+    @keyframes crop-sway { from { transform: rotate(-.8deg); } to { transform: rotate(.8deg); } }
+    @media (prefers-reduced-motion: reduce) { .tree-sway, .crop-sway { animation: none; } }
+  </style>
   <path fill="url(#sky)" d="M0 0h1600v1000H0z"/>
   <ellipse cx="1115" cy="456" rx="400" ry="360" fill="url(#haze)"/>
   <circle cx="1195" cy="480" r="48" fill="#FFF6DA" opacity=".75"/>
@@ -67,25 +79,33 @@
   <path d="M0 948c131-39 251-18 361 52H0Zm1032 52c195-87 398-73 568-115v115Z" fill="#8B8853" opacity=".55"/>
   <path d="M0 612C66 565 83 508 86 436c3-82-22-179-9-286l27-7c-8 135 24 198 18 295-4 95-28 169-48 233L0 690Z" fill="#6C7150"/>
   <path d="M100 385C144 303 188 248 272 201M96 294C47 235 31 208 0 191" stroke="#6C7150" stroke-width="16"/>
-  <path d="M0 0h267c69 24 105 59 96 106 54 14 64 62 34 96-45 48-110 38-145 16-28 41-89 45-126 14-50 31-89 27-126 7Z" fill="url(#tree)"/>
-  <path d="M0 76c65-33 109-22 155 2 45-26 97-11 114 23 59-4 83 16 95 40" stroke="#9AAB7D" stroke-width="28" opacity=".16"/>
-  <g color="#52705B" opacity=".85">
+  <g class="tree-sway tree-sway-crown">
+    <path d="M0 0h267c69 24 105 59 96 106 54 14 64 62 34 96-45 48-110 38-145 16-28 41-89 45-126 14-50 31-89 27-126 7Z" fill="url(#tree)"/>
+    <path d="M0 76c65-33 109-22 155 2 45-26 97-11 114 23 59-4 83 16 95 40" stroke="#9AAB7D" stroke-width="28" opacity=".16"/>
+  </g>
+  <g class="tree-sway tree-sway-left" color="#52705B" opacity=".85">
     <use href="#branch" transform="translate(55 219) rotate(63) scale(.8)"/>
     <use href="#branch" transform="translate(270 188) rotate(70) scale(.72)"/>
+  </g>
+  <g class="tree-sway tree-sway-right" color="#52705B" opacity=".85">
     <use href="#branch" transform="translate(1590 40) rotate(143) scale(1.4)"/>
     <use href="#branch" transform="translate(1610 96) rotate(168) scale(1.15)"/>
   </g>
-  <g color="#D6B56F">
+  <g class="crop-sway crop-sway-left" color="#D6B56F">
     <use href="#wheat" transform="translate(59 1008) rotate(-13) scale(1.55)"/>
     <use href="#wheat" transform="translate(109 1007) rotate(8) scale(1.2)"/>
     <use href="#wheat" transform="translate(161 1006) rotate(-19) scale(.95)"/>
+  </g>
+  <g class="crop-sway crop-sway-right" color="#D6B56F">
     <use href="#wheat" transform="translate(1439 1008) rotate(-9) scale(.95)"/>
     <use href="#wheat" transform="translate(1500 1007) rotate(15) scale(1.4)"/>
     <use href="#wheat" transform="translate(1551 1009) rotate(-8) scale(1.65)"/>
   </g>
-  <g color="#F1DBA6" opacity=".65">
+  <g class="crop-sway crop-sway-left" color="#F1DBA6" opacity=".65">
     <use href="#wheat" transform="translate(14 1004) rotate(-24)"/>
     <use href="#wheat" transform="translate(204 1006) rotate(12) scale(.65)"/>
+  </g>
+  <g class="crop-sway crop-sway-right" color="#F1DBA6" opacity=".65">
     <use href="#wheat" transform="translate(1378 1005) rotate(-18) scale(.7)"/>
   </g>
 </svg>
