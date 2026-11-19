@@ -21,6 +21,35 @@ setText('[data-locality]', wedding.locality);
 setText('[data-full-names]', `${wedding.groom} & ${wedding.bride}`);
 document.querySelector('[data-maps]').href = wedding.mapsUrl;
 
+const invitationIntro = document.querySelector('#invitation-intro');
+if (invitationIntro && typeof invitationIntro.showModal === 'function') {
+  const envelope = invitationIntro.querySelector('.invitation-envelope');
+  const skipIntro = invitationIntro.querySelector('.invitation-intro__skip');
+  invitationIntro.addEventListener('close', () => invitationIntro.remove(), { once: true });
+  const closeIntro = () => {
+    if (invitationIntro.open) invitationIntro.close();
+    else invitationIntro.remove();
+  };
+  const dismissOnEscape = (event) => {
+    event.preventDefault();
+    closeIntro();
+  };
+  invitationIntro.addEventListener('cancel', dismissOnEscape);
+  invitationIntro.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') dismissOnEscape(event);
+  });
+  envelope.addEventListener('click', () => {
+    if (invitationIntro.classList.contains('is-opening')) return;
+    if (window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches) return closeIntro();
+    invitationIntro.classList.add('is-opening');
+    envelope.disabled = true;
+    skipIntro.disabled = true;
+    window.setTimeout(closeIntro, 3800);
+  });
+  skipIntro.addEventListener('click', closeIntro);
+  invitationIntro.showModal();
+}
+
 // Artwork is chosen from each section's own shape, so a short landscape section on a portrait tablet
 // still gets landscape art. Portrait art is used once a section is taller than 80% of its width.
 const PORTRAIT_RATIO = 1.25;
@@ -104,6 +133,40 @@ if (wedding.motorcycle) {
   document.querySelector('.venue').append(vehicle);
   document.querySelector('.venue').classList.add('has-motorcycle');
 }
+
+function startHeartShower() {
+  if (window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches) return;
+  const shower = document.createElement('div');
+  shower.className = 'heart-shower';
+  shower.setAttribute('aria-hidden', 'true');
+  const colors = ['#b85c67', '#d8878e', '#bd985b', '#fff8e9'];
+  const count = window.innerWidth < 600 ? 22 : 36;
+  for (let i = 0; i < count; i++) {
+    const heart = document.createElement('span');
+    heart.className = 'heart-shower__heart';
+    heart.textContent = '♥';
+    const duration = 4.4 + Math.random() * 2.2;
+    heart.style.left = `${Math.random() * 100}%`;
+    heart.style.setProperty('--heart-size', `${12 + Math.random() * 13}px`);
+    heart.style.setProperty('--heart-color', colors[Math.floor(Math.random() * colors.length)]);
+    heart.style.setProperty('--heart-delay', `${-Math.random() * duration}s`);
+    heart.style.setProperty('--heart-duration', `${duration}s`);
+    heart.style.setProperty('--heart-drift', `${Math.round((Math.random() * 2 - 1) * 44)}px`);
+    heart.style.setProperty('--heart-rotation', `${Math.round((Math.random() * 2 - 1) * 90)}deg`);
+    shower.append(heart);
+  }
+  document.body.append(shower);
+  const stopAtPageEnd = () => {
+    if (window.scrollY + window.innerHeight < document.documentElement.scrollHeight - 2) return;
+    shower.remove();
+    window.removeEventListener('scroll', stopAtPageEnd);
+    window.removeEventListener('resize', stopAtPageEnd);
+  };
+  window.addEventListener('scroll', stopAtPageEnd, { passive: true });
+  window.addEventListener('resize', stopAtPageEnd, { passive: true });
+  window.requestAnimationFrame(stopAtPageEnd);
+}
+startHeartShower();
 
 const menuButton = document.querySelector('.menu-toggle');
 const menu = document.querySelector('#site-menu');

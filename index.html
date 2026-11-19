@@ -19,7 +19,30 @@
     <script type="module" src="main.js"></script>
 </head>
 
-<body> <a class="skip-link" href="#invitation">Skip to invitation</a>
+<body>
+    <dialog class="invitation-intro" id="invitation-intro" aria-labelledby="invitation-intro-title"
+        aria-describedby="invitation-intro-instructions">
+        <div class="invitation-intro__content">
+            <p class="eyebrow">A LITTLE LOVE LETTER</p>
+            <h2 id="invitation-intro-title">An invitation for you</h2>
+            <button class="invitation-envelope" type="button" aria-label="Open the wedding invitation" autofocus>
+                <span class="invitation-envelope__back" aria-hidden="true"></span>
+                <span class="invitation-envelope__letter" aria-hidden="true">
+                    <span class="invitation-envelope__letter-kicker">THE WEDDING OF</span>
+                    <span class="invitation-envelope__names">Manoj &amp; Dhanushri</span>
+                    <span class="invitation-envelope__ornament">✦</span>
+                    <span class="invitation-envelope__invite">With joy, we invite you</span>
+                </span>
+                <span class="invitation-envelope__front" aria-hidden="true"></span>
+                <span class="invitation-envelope__flap" aria-hidden="true"></span>
+                <span class="invitation-envelope__seal" aria-hidden="true">M <span>&amp;</span> D</span>
+            </button>
+            <p class="invitation-intro__instructions" id="invitation-intro-instructions">Tap the envelope to open
+                your invitation.</p>
+            <button class="invitation-intro__skip" type="button">Skip intro</button>
+        </div>
+    </dialog>
+    <a class="skip-link" href="#invitation">Skip to invitation</a>
     <header class="site-header"> <a class="monogram" href="#welcome" aria-label="Manoj and Dhanushri, home">M
             <span>&amp;</span> D</a> <span class="header-note">A LITTLE LOVE STORY</span> <button class="menu-toggle"
             type="button" aria-expanded="false" aria-controls="site-menu" aria-label="Open navigation">☰</button>

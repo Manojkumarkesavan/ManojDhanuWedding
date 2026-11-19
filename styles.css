@@ -25,6 +25,40 @@ button:focus-visible, a:focus-visible { outline: 2px solid #174f4c; outline-offs
 ::selection { color: #fff8e9; background: #174f4c; }
 .skip-link { position: fixed; top: -60px; left: 12px; z-index: 100; background: #fff8e9; padding: 12px; }
 .skip-link:focus { top: 12px; }
+.invitation-intro { position: fixed; inset: 0; width: 100vw; height: 100vh; height: 100svh; max-width: none; max-height: none; margin: 0; padding: clamp(24px, 5vw, 48px); overflow: auto; border: 0; color: #60442f; background: radial-gradient(ellipse at 50% 43%, rgba(255,255,255,.78), rgba(255,250,239,.58) 42%, transparent 72%), linear-gradient(135deg, #f8f0e2, #f1e5d0 54%, #fffaf0); opacity: 1; }
+.invitation-intro::before { position: absolute; inset: clamp(10px, 2.4vw, 28px); z-index: 0; border: 1px solid rgba(181,145,85,.28); box-shadow: inset 0 0 0 5px rgba(181,145,85,.045), inset 0 0 0 6px rgba(181,145,85,.13); content: ""; pointer-events: none; }
+.invitation-intro:not([open]) { display: none; }
+.invitation-intro[open] { display: grid; place-items: center; }
+.invitation-intro::backdrop { background: #f5e9d3; }
+.invitation-intro.is-opening { opacity: 0; transition: opacity .85s 2.65s cubic-bezier(.22,.8,.2,1); }
+.invitation-intro__content { position: relative; z-index: 1; width: min(100%, 560px); margin: auto; text-align: center; }
+.invitation-intro__content h2 { margin: 0 0 28px; font-size: clamp(38px, 7vw, 58px); }
+.invitation-envelope { position: relative; display: block; width: min(84vw, 440px); height: clamp(190px, 58vw, 260px); margin: 0 auto; padding: 0; border: 0; background: transparent; perspective: 1100px; transform-style: preserve-3d; transition: transform .65s cubic-bezier(.2,.8,.2,1); cursor: pointer; }
+.invitation-envelope:hover:not(:disabled) { transform: translateY(-4px); }
+.invitation-envelope:focus-visible { outline: 2px solid #174f4c; outline-offset: 8px; }
+.invitation-envelope__back { position: absolute; inset: 0; z-index: 0; overflow: hidden; border: 1px solid rgba(220,190,132,.78); border-radius: 7px; background: linear-gradient(145deg, rgba(255,255,255,.21), transparent 38%), linear-gradient(35deg, rgba(5,29,25,.34), transparent 48%), linear-gradient(135deg, #20594f, #103b36 58%, #1c5147); box-shadow: inset 0 1px 0 rgba(255,255,255,.35), inset 0 -3px 8px rgba(0,0,0,.2), 0 15px 24px rgba(60,43,23,.16), 0 38px 70px -28px rgba(31,43,34,.5); }
+.invitation-envelope__back::before { position: absolute; inset: 2px; border: 1px solid rgba(239,215,166,.2); border-radius: 4px; background: repeating-linear-gradient(0deg, rgba(255,255,255,.018) 0 1px, transparent 1px 4px), repeating-linear-gradient(90deg, rgba(10,31,26,.025) 0 1px, transparent 1px 5px); content: ""; }
+.invitation-envelope__letter { position: absolute; inset: 7% 8% 8%; z-index: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; padding: 18px; border: 1px solid #d3b77f; background: radial-gradient(ellipse at 50% 0%, #fff 0, transparent 58%), repeating-linear-gradient(0deg, transparent 0 4px, rgba(110,84,49,.018) 4px 5px), linear-gradient(145deg, #fffefa, #f4ecdc); box-shadow: inset 0 0 0 4px rgba(198,166,107,.13), 0 3px 5px rgba(58,42,23,.14), 0 16px 30px rgba(30,26,18,.2); filter: drop-shadow(0 4px 5px rgba(31,27,19,.14)); transition: transform 1.8s cubic-bezier(.16,1,.3,1) .55s, filter 1.8s cubic-bezier(.16,1,.3,1) .55s, z-index 0s .55s; }
+.invitation-envelope__letter-kicker { color: #927848; font-family: var(--font-support); font-size: 8px; font-weight: 600; letter-spacing: .3em; }
+.invitation-envelope__names { color: #174f4c; font-family: var(--font-display); font-size: clamp(22px, 5vw, 32px); }
+.invitation-envelope__ornament { color: #b68b53; font-size: 13px; line-height: 1; }
+.invitation-envelope__invite { color: #8e7048; font-family: var(--font-script); font-size: clamp(18px, 4vw, 24px); }
+.invitation-envelope__front { position: absolute; inset: 0; z-index: 3; background: linear-gradient(145deg, rgba(255,255,255,.35), transparent 32%, rgba(114,78,35,.12)), linear-gradient(135deg, #d3b477, #f3e4c4 48%, #c9a666); clip-path: polygon(0 0, 50% 60%, 100% 0, 100% 100%, 0 100%); filter: drop-shadow(0 1px 1px rgba(75,53,25,.2)); }
+.invitation-envelope__front::before, .invitation-envelope__front::after { position: absolute; inset: 0; content: ""; }
+.invitation-envelope__front::before { background: linear-gradient(35deg, rgba(104,73,36,.2), rgba(255,255,255,.12)); clip-path: polygon(0 0, 50% 60%, 0 100%); }
+.invitation-envelope__front::after { background: linear-gradient(145deg, rgba(255,255,255,.24), rgba(104,73,36,.16)); clip-path: polygon(100% 0, 50% 60%, 100% 100%); }
+.invitation-envelope__flap { position: absolute; inset: 0 0 auto; z-index: 4; height: 64%; background: linear-gradient(155deg, rgba(255,255,255,.2), transparent 42%, rgba(0,0,0,.12)), linear-gradient(165deg, #246054, #103d37 72%); clip-path: polygon(0 0, 100% 0, 50% 100%); transform-origin: 50% 0; transform-style: preserve-3d; backface-visibility: hidden; transition: transform 1.45s cubic-bezier(.2,.8,.2,1) .12s; }
+.invitation-envelope__flap::before { position: absolute; inset: 9px 12px auto; height: calc(100% - 18px); background: linear-gradient(160deg, rgba(233,202,145,.24), rgba(255,255,255,.025)); clip-path: polygon(0 0, 100% 0, 50% 100%); content: ""; }
+.invitation-envelope__flap::after { position: absolute; bottom: 1px; left: 50%; width: 38%; height: 1px; background: linear-gradient(90deg, transparent, rgba(241,215,168,.62), transparent); content: ""; transform: translateX(-50%); }
+.invitation-envelope__seal { position: absolute; top: 56%; left: 50%; z-index: 5; display: flex; align-items: center; justify-content: center; gap: 2px; width: 68px; height: 68px; border: 1px solid rgba(237,207,146,.92); border-radius: 48% 52% 47% 53% / 52% 47% 53% 48%; color: #f8e9ce; background: radial-gradient(circle at 31% 24%, #c77b72 0, #9e4b4d 31%, #7a343d 69%, #5d2732 100%); box-shadow: inset 0 2px 3px rgba(255,244,222,.48), inset 0 -7px 10px rgba(57,21,31,.45), 0 3px 5px rgba(255,255,255,.35), 0 9px 17px rgba(38,25,18,.38); font-family: var(--font-display); font-size: 15px; letter-spacing: .04em; text-shadow: 0 1px 1px rgba(57,21,31,.65); transform: translate(-50%, -50%); transition: opacity .5s ease, transform .65s cubic-bezier(.2,.8,.2,1); }
+.invitation-envelope__seal span { color: #e4c68e; font-size: .75em; }
+.invitation-envelope__seal::before { position: absolute; inset: 5px; border: 1px solid rgba(237,207,146,.55); border-radius: inherit; content: ""; }
+.invitation-intro.is-opening .invitation-envelope__flap { z-index: 1; transform: rotateX(180deg); }
+.invitation-intro.is-opening .invitation-envelope__letter { z-index: 6; transform: translateY(-76%) scale(1.045); filter: drop-shadow(0 16px 18px rgba(31,27,19,.25)); }
+.invitation-intro.is-opening .invitation-envelope__seal { opacity: 0; transform: translate(-50%, -50%) scale(.72) rotate(-12deg); }
+.invitation-intro__instructions { margin: 22px 0 4px; color: #7e705e; font-family: var(--font-display); font-size: 19px; font-style: italic; }
+.invitation-intro__skip { min-height: 44px; padding: 8px 14px; border: 0; color: #174f4c; background: transparent; font-size: 11px; letter-spacing: .1em; text-decoration: underline; text-underline-offset: 4px; cursor: pointer; }
+.invitation-intro__skip:disabled { visibility: hidden; }
 .site-header { --header-top: max(26px, env(safe-area-inset-top)); position: absolute; z-index: 20; top: 0; left: 0; width: 100%; padding: var(--header-top) 6% 20px; display: flex; align-items: center; justify-content: space-between; color: #244e48; }
 /* Holds the menu button's place in the row, since the button itself is fixed so it stays reachable while scrolling. */
 .site-header::after { content: ""; width: 44px; height: 44px; }
@@ -138,8 +172,11 @@ footer span { padding: 0 8px; }
 .noscript-notice { padding: 20px; background: #fff8e9; color: #60442f; }
 .music-control > span { padding: 8px; color: #60442f; background: #fff8e9; font-size: 12px; }
 .music-button { display: grid; place-items: center; width: 50px; height: 50px; color: #fff8e9; background: #174f4c; border: 1px solid #d6b56f; border-radius: 50%; cursor: pointer; box-shadow: 0 4px 20px #174f4c33; }
+.heart-shower { position: fixed; z-index: 18; inset: 0; overflow: hidden; pointer-events: none; }
+.heart-shower__heart { position: absolute; top: -8vh; color: var(--heart-color); font-size: var(--heart-size); line-height: 1; text-shadow: 0 2px 6px rgba(71,45,38,.22); animation: heart-fall var(--heart-duration) linear var(--heart-delay) infinite; }
 @keyframes water { from { transform: translate3d(-3%,0,0) scaleX(.9); opacity: .2; } to { transform: translate3d(3%,2px,0) scaleX(1.05); opacity: .6; } }
 @keyframes birds-drift { from { transform: translateX(0) rotate(-8deg); } to { transform: translateX(-60px) translateY(-8px) rotate(-8deg); } }
+@keyframes heart-fall { 0% { transform: translate3d(0,-5vh,0) rotate(0) scale(.8); opacity: 0; } 12% { opacity: .85; } 100% { transform: translate3d(var(--heart-drift),110vh,0) rotate(var(--heart-rotation)) scale(1); opacity: 0; } }
 @media (max-width: 900px) {
   .site-header { --header-top: max(20px, env(safe-area-inset-top)); padding: var(--header-top) 6% 15px; }
   .header-note { display: none; }
@@ -162,6 +199,11 @@ footer span { padding: 0 8px; }
   .motorcycle { width: min(75%, 450px); bottom: 55px; }
   /* Landscape art keeps the plants at the sides, so narrow the text to stay between them. */
   .final:not(.is-portrait) .final-content { width: min(58%, 550px); }
+}
+@media (max-height: 500px) {
+  .invitation-intro__content h2 { margin-bottom: 12px; }
+  .invitation-envelope { height: 150px; }
+  .invitation-intro__instructions { margin-top: 12px; }
 }
 @media (max-width: 600px) {
   /* Leaves room for the corner vases in the portrait botanical frame. */

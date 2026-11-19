@@ -549,6 +549,8 @@ if (gallery.entries.length) {
 
 ### 8.10 Animation (GSAP; content is visible without it)
 
+On initialization, open the native `#invitation-intro` dialog. Its envelope button performs a slow, layered reveal: the wax seal releases, the flap opens, and the invitation card rises before the dialog fades away (about 3.8 seconds total). The Skip intro button or Escape closes it immediately. With reduced motion, opening closes immediately. If dialog support is unavailable, the dialog remains hidden and the page works normally.
+
 ```js
 if (window.gsap && window.ScrollTrigger) {
   gsap.registerPlugin(ScrollTrigger);
@@ -574,6 +576,7 @@ if (window.gsap && window.ScrollTrigger) {
 - `matchMedia` reverts all tweens automatically when reduced motion is turned on.
 - Use function-based `x` values with `invalidateOnRefresh` so resizing recalculates the motorcycle path.
 - A flattened motorcycle image cannot spin its wheels. Note this in the README; separate wheel layers would be required.
+- Page load starts a full-screen decorative heart shower. Hearts keep falling as guests scroll, stop at the end of the page, are aria-hidden and pointer-events-free, and are skipped under reduced motion.
 
 ---
 

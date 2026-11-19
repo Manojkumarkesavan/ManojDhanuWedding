@@ -144,7 +144,11 @@ All three are licensed under the SIL Open Font License, and their licence files 
 
 Every section is at least one full screen tall, so the navigation links, "Join Our Journey" and "Scroll to explore" land on exactly one scene. Sections with more content, such as Save the Date on most devices, grow taller and scroll on. Portrait layouts switch to dedicated mobile SVG compositions; the narrowest screens stack the event dates. Navigation and the photo viewer account for short viewports, touch controls and safe areas. Optional character artwork occupies its own layout space rather than covering the text.
 
+On load, a layered envelope invitation opens with a slow flap-and-card reveal when tapped; guests can skip the intro or press Escape. The page remains available if JavaScript or native dialog support is unavailable.
+
 GSAP respects `prefers-reduced-motion`, with a readable static layout if animation libraries are unavailable. The motorcycle uses one scroll-linked timeline for its entrance, travel and fade-out; reduced-motion mode leaves it centered and visible. A single flattened motorcycle image cannot animate its wheels independently: separate wheel layers would be needed for that effect.
+
+On page load, a full-screen, decorative heart shower starts and continues while guests scroll, stopping at the end of the page. It never blocks controls and is skipped when reduced motion is enabled.
 
 Browser verification covers viewport sizes from 320px to 2560px wide, including phone landscape. With the placeholder assets, headed Chrome checks at six sizes confirm that every menu link lands at the top of a full-screen section, the polaroid gallery (shuffle, hover, swipe stack) and lightbox work, the music plays, and there are no console errors or failed requests. Physical iPhone Safari and Android Chrome checks, and the final couple artwork, photos and music, should still be verified before guest release.
 
