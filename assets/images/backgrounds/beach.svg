@@ -35,6 +35,13 @@
       <path d="m-31-113-5-21m77-1 6-24m-53-1-2-27m73 110 15-12" stroke-width="5"/>
     </g>
   </defs>
+  <style>
+    .palm-sway { transform-box: view-box; animation: palm-sway 18s ease-in-out infinite alternate; }
+    .palm-sway-left { transform-origin: 143px 317px; }
+    .palm-sway-right { transform-origin: 1648px 82px; animation-delay: -9s; }
+    @keyframes palm-sway { from { transform: rotate(-1deg); } to { transform: rotate(1deg); } }
+    @media (prefers-reduced-motion: reduce) { .palm-sway { animation: none; } }
+  </style>
   <path fill="url(#sky)" d="M0 0h1600v1000H0z"/>
   <path fill="url(#glow)" d="M0 0h1600v850H0z"/>
   <g stroke="#FFF8ED" stroke-linecap="round" opacity=".35">
@@ -60,14 +67,14 @@
     <path d="M143 320C91 249 37 220-34 235c64 6 115 39 166 98Z"/>
     <path d="M145 315c-27-112-76-174-145-188 55 35 96 95 131 194Z"/>
   </g>
-  <g color="#315A50">
+  <g class="palm-sway palm-sway-left" color="#315A50">
     <use href="#frond" transform="translate(143 317) rotate(-17) scale(1.17)"/>
     <use href="#frond" transform="translate(144 317) rotate(22) scale(1.05)"/>
     <use href="#frond" transform="translate(142 313) rotate(-58) scale(.9)"/>
     <use href="#frond" transform="translate(141 316) rotate(168) scale(.95)"/>
     <use href="#frond" transform="translate(145 320) rotate(119) scale(.7)"/>
   </g>
-  <g color="#45685B" opacity=".9">
+  <g class="palm-sway palm-sway-right" color="#45685B" opacity=".9">
     <use href="#frond" transform="translate(1648 82) rotate(165) scale(1.55)"/>
     <use href="#frond" transform="translate(1632 92) rotate(124) scale(1.4)"/>
     <use href="#frond" transform="translate(1620 72) rotate(191) scale(1.2)"/>
