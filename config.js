@@ -1,41 +1,108 @@
 export const wedding = {
- groom: 'K. Manojkumar',
- bride: 'S. V. Dhanushri',
- names: 'Manoj & Dhanushri',
- venue: 'Sri Lakshmi Aandal Maaligai',
- locality: 'Chromepet, Chennai',
- address: 'Chromepet, Chennai, Tamil Nadu, India',
- // TODO: Confirm the Google Maps search result with the venue before sharing.
- mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Sri+Lakshmi+Aandal+Maaligai%2C+Chromepet%2C+Chennai%2C+Tamil+Nadu%2C+India',
- reception: { day: '13', month: 'December', year: '2026', time: '6:30 PM onwards' },
- muhurtham: { day: '14', month: 'December', year: '2026', time: '6:30 AM onwards', iso: '2026-12-14T06:30:00+05:30' },
- // TODO: Supply licensed assets under assets/ and set these relative paths.
- music: null, // e.g. 'music/wedding-background.mp3'
- coupleBeach: null, // e.g. 'images/couple/beach.webp'
- coupleWedding: null,
- couplePortrait: null,
- motorcycle: null,
- // TODO: Replace the decorative scene backgrounds with the final artwork.
- backgrounds: {
- beach: 'images/backgrounds/beach.svg',
- mandapam: 'images/backgrounds/mandapam.svg',
- countryside: 'images/backgrounds/countryside.svg',
- botanical: 'images/backgrounds/botanical.svg',
- },
+  groom: 'Manojkumar',
+  bride: 'Dhanushri',
+  names: 'Manoj & Dhanushri',
+  venue: 'Sri Lakshmi Aandal Maaligai',
+  locality: 'Chromepet, Chennai',
+  address: 'Chromepet, Chennai, Tamil Nadu, India',
+  // TODO: Confirm the Google Maps search result with the venue before sharing.
+  mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Sri+Lakshmi+Aandal+Maaligai%2C+Chromepet%2C+Chennai%2C+Tamil+Nadu%2C+India',
+  reception: { day: '13', month: 'December', year: '2026', time: '6:30 PM onwards' },
+  muhurtham: { day: '14', month: 'December', year: '2026', time: '6:30 AM onwards', iso: '2026-12-14T06:30:00+05:30' },
+  // Placeholder assets: original illustrations and an original instrumental (Mohanam, veena and tanpura)
+  // made for this site. TODO: Replace with the couple's approved artwork and chosen music when ready.
+  music: 'music/Anbil-Avan-Bgm.mp3',
+  coupleBeach: 'images/couple/couple-beach.svg',
+  coupleWedding: 'images/couple/couple-wedding.svg',
+  couplePortrait: 'images/couple/couple-portrait.svg',
+  motorcycle: 'images/couple/motorcycle.svg',
+  // TODO: Replace the decorative scene backgrounds with the final artwork.
+  backgrounds: {
+    beach: 'images/backgrounds/beach.svg',
+    mandapam: 'images/backgrounds/mandapam.svg',
+    countryside: 'images/backgrounds/countryside.svg',
+    botanical: 'images/backgrounds/botanical.svg',
+  },
+  mobileBackgrounds: {
+    beach: 'images/backgrounds/beach-mobile.svg',
+    mandapam: 'images/backgrounds/mandapam-mobile.svg',
+    countryside: 'images/backgrounds/countryside-mobile.svg',
+    botanical: 'images/backgrounds/botanical-mobile.svg',
+  },
 };
 
 export const gallery = {
- categories: [
- { id: 'pre-wedding', label: 'Pre-Wedding' },
- { id: 'couple-portraits', label: 'Couple Portraits' },
- { id: 'candid-moments', label: 'Candid Moments' },
- { id: 'special-memories', label: 'Special Memories' },
- ],
- // TODO: Add supplied photos under assets/gallery/ and configure entries.
- // Example: { id: 'photo-01', image: 'gallery/featured/photo-01.webp',
- // thumbnail: 'gallery/featured/photo-01-thumb.webp', category: 'pre-wedding',
- // caption: 'A moment to remember', alt: 'Manoj and Dhanushri together',
- // featured: true, displayOrder: 1, orientation: 'portrait', width: 1200, height: 1600 }
- entries: [],
- watermark: '', // Optional subtle watermark, e.g. 'Manoj & Dhanushri'
+  categories: [
+    { id: 'pre-wedding', label: 'Pre-Wedding' },
+    { id: 'couple-portraits', label: 'Couple Portraits' },
+    { id: 'candid-moments', label: 'Candid Moments' },
+    { id: 'special-memories', label: 'Special Memories' },
+  ],
+  // Placeholder photographs from Unsplash (free to use under the Unsplash License, https://unsplash.com/license);
+  // `source` records each original. They are not photos of the couple.
+  // TODO: Replace with Manoj and Dhanushri's own photographs under assets/gallery/.
+  // The polaroid board is designed for 6–15 photos; keep captions to a few words so they fit on one line.
+  entries: [
+    { id: 'featured-seaside-veil', image: 'gallery/featured/seaside-veil.webp', thumbnail: 'gallery/featured/seaside-veil-thumb.webp',
+      category: 'couple-portraits', caption: 'By the sea, side by side', alt: 'A bride and groom embracing on a pebble beach, her long veil lifting in the breeze',
+      featured: true, displayOrder: 1, orientation: 'portrait', width: 1100, height: 1650,
+      source: 'https://images.unsplash.com/photo-1537633552985-df8429e8048b' },
+    { id: 'featured-baraat', image: 'gallery/featured/baraat-celebration.webp', thumbnail: 'gallery/featured/baraat-celebration-thumb.webp',
+      category: 'candid-moments', caption: 'Music and celebration', alt: 'A groom in a cream sherwani and turban dancing with family at a lively wedding celebration',
+      featured: true, displayOrder: 2, orientation: 'landscape', width: 1600, height: 1067,
+      source: 'https://images.unsplash.com/photo-1610173827002-62c0f1f05d04' },
+    { id: 'prewedding-hills', image: 'gallery/prewedding/hills-walk.webp', thumbnail: 'gallery/prewedding/hills-walk-thumb.webp',
+      category: 'pre-wedding', caption: 'Walking into forever', alt: 'A couple walking hand in hand across golden hills under a soft grey sky',
+      featured: false, displayOrder: 3, orientation: 'landscape', width: 1600, height: 1067,
+      source: 'https://images.unsplash.com/photo-1532712938310-34cb3982ef74' },
+    { id: 'portrait-lakeside', image: 'gallery/portraits/lakeside-bouquet.webp', thumbnail: 'gallery/portraits/lakeside-bouquet-thumb.webp',
+      category: 'couple-portraits', caption: 'Golden hour by the lake', alt: 'A smiling bride holding a bouquet of roses beside the groom at a lakeside',
+      featured: false, displayOrder: 4, orientation: 'landscape', width: 1600, height: 1067,
+      source: 'https://images.unsplash.com/photo-1591604466107-ec97de577aff' },
+    { id: 'candid-mehndi', image: 'gallery/candid/mehndi-hands.webp', thumbnail: 'gallery/candid/mehndi-hands-thumb.webp',
+      category: 'candid-moments', caption: 'Henna and happiness', alt: 'Close-up of hands decorated with intricate henna patterns',
+      featured: false, displayOrder: 5, orientation: 'landscape', width: 1600, height: 1067,
+      source: 'https://images.unsplash.com/photo-1545232979-8bf68ee9b1af' },
+    { id: 'memories-silk-saree', image: 'gallery/memories/silk-saree.webp', thumbnail: 'gallery/memories/silk-saree-thumb.webp',
+      category: 'special-memories', caption: 'Silk, gold and jasmine', alt: 'A bride in a pink and gold silk saree with traditional temple jewellery, standing among trees',
+      featured: false, displayOrder: 6, orientation: 'portrait', width: 1100, height: 1650,
+      source: 'https://images.unsplash.com/photo-1617627143750-d86bc21e42bb' },
+    { id: 'prewedding-black-sand', image: 'gallery/prewedding/black-sand-beach.webp', thumbnail: 'gallery/prewedding/black-sand-beach-thumb.webp',
+      category: 'pre-wedding', caption: 'Where land meets sea', alt: 'A couple sharing a dance on a black sand beach with sea stacks behind them',
+      featured: false, displayOrder: 7, orientation: 'landscape', width: 1600, height: 1067,
+      source: 'https://images.unsplash.com/photo-1544078751-58fee2d8a03b' },
+    { id: 'candid-confetti', image: 'gallery/candid/confetti-kiss.webp', thumbnail: 'gallery/candid/confetti-kiss-thumb.webp',
+      category: 'candid-moments', caption: 'Showered with love', alt: 'A bride and groom kissing as friends shower them with petals and confetti',
+      featured: false, displayOrder: 8, orientation: 'portrait', width: 1100, height: 1650,
+      source: 'https://images.unsplash.com/photo-1583939003579-730e3918a45a' },
+    { id: 'memories-golden-rings', image: 'gallery/memories/golden-rings.webp', thumbnail: 'gallery/memories/golden-rings-thumb.webp',
+      category: 'special-memories', caption: 'Two rings, one promise', alt: 'Two gold wedding rings resting together on soft white fabric',
+      featured: false, displayOrder: 9, orientation: 'landscape', width: 1600, height: 1067,
+      source: 'https://images.unsplash.com/photo-1606800052052-a08af7148866' },
+    { id: 'portrait-palm-garden', image: 'gallery/portraits/palm-garden.webp', thumbnail: 'gallery/portraits/palm-garden-thumb.webp',
+      category: 'couple-portraits', caption: 'Laughter under the palms', alt: 'A laughing bride and groom walking arm in arm through a palm garden',
+      featured: false, displayOrder: 10, orientation: 'portrait', width: 1100, height: 1650,
+      source: 'https://images.unsplash.com/photo-1606216794074-735e91aa2c92' },
+    { id: 'prewedding-pampas', image: 'gallery/prewedding/pampas-embrace.webp', thumbnail: 'gallery/prewedding/pampas-embrace-thumb.webp',
+      category: 'pre-wedding', caption: 'A quiet moment', alt: 'A couple sharing a tender, smiling moment, holding dried pampas flowers',
+      featured: false, displayOrder: 11, orientation: 'landscape', width: 1600, height: 1067,
+      source: 'https://images.unsplash.com/photo-1621621667797-e06afc217fb0' },
+    { id: 'candid-petal-shower', image: 'gallery/candid/petal-shower.webp', thumbnail: 'gallery/candid/petal-shower-thumb.webp',
+      category: 'candid-moments', caption: 'The walk of joy', alt: 'A bride and groom walking down an aisle as guests throw flower petals',
+      featured: false, displayOrder: 12, orientation: 'landscape', width: 1600, height: 1067,
+      source: 'https://images.unsplash.com/photo-1595407753234-0882f1e77954' },
+    { id: 'memories-rings-roses', image: 'gallery/memories/rings-and-roses.webp', thumbnail: 'gallery/memories/rings-and-roses-thumb.webp',
+      category: 'special-memories', caption: 'Hand in hand', alt: 'The couple\u2019s hands with wedding rings, resting on a bouquet of peach roses',
+      featured: false, displayOrder: 13, orientation: 'landscape', width: 1600, height: 1067,
+      source: 'https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6' },
+    { id: 'portrait-monochrome', image: 'gallery/portraits/monochrome-kiss.webp', thumbnail: 'gallery/portraits/monochrome-kiss-thumb.webp',
+      category: 'couple-portraits', caption: 'Timeless', alt: 'A black-and-white photograph of a bride and groom sharing a kiss, her veil flowing',
+      featured: false, displayOrder: 14, orientation: 'landscape', width: 1600, height: 933,
+      source: 'https://images.unsplash.com/photo-1460978812857-470ed1c77af0' },
+    { id: 'prewedding-holding-hands', image: 'gallery/prewedding/holding-hands.webp', thumbnail: 'gallery/prewedding/holding-hands-thumb.webp',
+      category: 'pre-wedding', caption: 'Never letting go', alt: 'A bride and groom holding hands, their shadows falling on the grass',
+      featured: false, displayOrder: 15, orientation: 'landscape', width: 1600, height: 1067,
+      source: 'https://images.unsplash.com/photo-1520854221256-17451cc331bf' },
+  ],
+  watermark: '', // Optional subtle watermark, e.g. 'Manoj & Dhanushri'
 };

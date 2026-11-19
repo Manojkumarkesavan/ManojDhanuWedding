@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="none">
+  <!-- Responsive portrait frame: no viewBox, so branches and vases keep their proportions at every phone and tablet size. -->
+  <defs>
+    <linearGradient id="wall" x2="0" y2="1"><stop stop-color="#e9d8b5"/><stop offset=".5" stop-color="#fff8e9"/><stop offset="1" stop-color="#e3cda6"/></linearGradient>
+    <linearGradient id="vase"><stop stop-color="#173e39"/><stop offset=".4" stop-color="#41675b"/><stop offset=".7" stop-color="#31584e"/><stop offset="1" stop-color="#1d443f"/></linearGradient>
+    <g id="branch" stroke="#8b9666" stroke-width="2">
+      <path d="M0 0q65 125 15 270"/>
+      <g fill="#839062" stroke="none"><path d="M10 40Q-35 22-38-9 5-4 10 40Zm12 45Q-28 73-36 41 8 42 22 85Zm6 49Q-21 124-30 93 9 91 28 134Zm-3 54Q-20 180-27 150 7 146 25 188Zm-4-123Q66 39 61 8 24 20 21 65Zm7 52Q74 92 74 61 35 74 28 117Zm0 54Q71 149 77 118 39 128 28 171Zm-10 49Q60 213 76 179 36 183 18 220Z"/></g>
+    </g>
+    <g id="sprig" stroke="#7f8b5d" stroke-width="1.5">
+      <path d="M0 0q-12-80 7-170"/>
+      <path d="M-1-22q-26-8-27-30 22 8 27 30Zm-2-23q25-7 28-29-21 6-28 29Zm0-23q-22-8-21-27 19 8 21 27Zm1-25q23-6 25-25-19 5-25 25Zm3-23q-17-10-14-26 15 8 14 26Zm3-24q18-7 20-24-16 6-20 24Z" fill="#8b9666" fill-opacity=".85"/>
+    </g>
+    <g id="vaseGroup">
+      <use href="#sprig" transform="translate(0 -72) scale(.72)"/><use href="#sprig" transform="translate(-10 -70) rotate(-16) scale(.58)"/><use href="#sprig" transform="translate(10 -70) rotate(15) scale(.55)"/>
+      <path d="M-14-80h28l-3 10c19 9 27 27 23 46-4 17-15 24-15 24h-38s-11-7-15-24c-4-19 4-37 23-46Z" fill="url(#vase)"/>
+      <path d="M-16-80h32" stroke="#d6b56f" stroke-width="3"/><path d="M-24-38h48" stroke="#d6b56f" stroke-opacity=".7"/>
+    </g>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#wall)"/>
+  <svg width="100%" height="100%" viewBox="0 0 600 1000" preserveAspectRatio="none">
+    <path d="M63 1000V300C63 50 537 50 537 300v700" stroke="#c6a775" stroke-width="3" stroke-opacity=".6" vector-effect="non-scaling-stroke"/>
+    <path d="M78 1000V305C78 76 522 76 522 305v695" stroke="#e0c498" stroke-width="8" stroke-opacity=".6" vector-effect="non-scaling-stroke"/>
+    <path d="M90 1000V315C90 105 510 105 510 315v685Z" fill="#fff9eb" fill-opacity=".28"/>
+  </svg>
+  <g fill="#d6b56f" fill-opacity=".35"><circle cx="21%" cy="35%" r="2"/><circle cx="81%" cy="42%" r="2"/><circle cx="15%" cy="66%" r="3"/><circle cx="85%" cy="72%" r="3"/><circle cx="75%" cy="21%" r="2"/></g>
+  <use href="#branch" transform="translate(36 0) rotate(-13) scale(.85)"/>
+  <use href="#branch" transform="translate(4 26) rotate(12) scale(.58)"/>
+  <svg x="100%" overflow="visible">
+    <use href="#branch" transform="translate(-36 0) scale(-.85 .85) rotate(-13)"/>
+    <use href="#branch" transform="translate(-4 26) scale(-.58 .58) rotate(12)"/>
+  </svg>
+  <svg y="100%" overflow="visible">
+    <rect y="-118" width="100%" height="118" fill="#ead8b8" fill-opacity=".4"/>
+    <rect y="-118.5" width="100%" height="1" fill="#bd9b67" fill-opacity=".35"/>
+    <rect y="-66.5" width="100%" height="1" fill="#bd9b67" fill-opacity=".3"/>
+    <use href="#vaseGroup" transform="translate(40 -100) scale(.85)"/>
+  </svg>
+  <svg x="100%" y="100%" overflow="visible"><use href="#vaseGroup" transform="translate(-40 -100) scale(.85)"/></svg>
+  <svg x="50%" y="100%" overflow="visible"><path d="M-110-118-160 0M110-118 160 0" stroke="#bd9b67" stroke-opacity=".3"/></svg>
+</svg>

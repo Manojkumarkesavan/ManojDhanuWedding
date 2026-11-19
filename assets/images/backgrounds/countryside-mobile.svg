@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 1000" preserveAspectRatio="xMidYMid slice" fill="none">
+  <defs>
+    <linearGradient id="sky" x2="0" y2="1"><stop stop-color="#f5e9cf"/><stop offset=".65" stop-color="#e6c690"/><stop offset="1" stop-color="#d7ae6a"/></linearGradient>
+    <linearGradient id="road" x2="0" y2="1"><stop stop-color="#c3aa82"/><stop offset="1" stop-color="#8f8268"/></linearGradient>
+    <g id="tree"><path d="M0 340 9 0l6 340" fill="#716b49"/><path d="M8 135C-84 123-92 35-30 6-62-71 14-99 39-48 114-64 122 22 72 51c36 59-18 91-64 84Z" fill="#a79853"/><path d="M10 60c-63-4-72-64-23-73-20-54 42-71 61-28 51-6 59 51 20 61 24 40-12 55-58 40Z" fill="#c3ac65" opacity=".65"/></g>
+  </defs>
+  <path fill="url(#sky)" d="M0 0h600v1000H0z"/>
+  <circle cx="420" cy="590" r="52" fill="#fff0bf" opacity=".8"/>
+  <path d="M0 680q130-85 290-16 160-60 310-20v356H0Z" fill="#c3b579"/>
+  <path d="M0 750q145-87 300-30 170-60 300-10v290H0Z" fill="#b3a16a"/>
+  <g opacity=".35" fill="#8f965f"><path d="M0 665 40 410l28 255 40-215 40 215 36-175 35 175Zm600 0-40-275-27 275-37-225-38 225-35-175-32 175Z"/></g>
+  <path d="M278 664c-84 60 196 98 133 169-45 51-229 50-265 167h365c-21-83 68-124 14-186-63-73-305-95-225-150Z" fill="url(#road)"/>
+  <path d="M290 669c-50 47 217 98 148 169-51 53-176 71-201 162" stroke="#ead6af" stroke-width="3" stroke-dasharray="25 30" opacity=".65"/>
+  <use href="#tree" transform="translate(22 410) scale(.85 1.55)"/><use href="#tree" transform="translate(551 465) scale(.75 1.35)"/>
+  <use href="#tree" transform="translate(122 560) scale(.4 .65)" opacity=".6"/><use href="#tree" transform="translate(489 583) scale(.34 .6)" opacity=".6"/>
+  <g fill="#e0bf6f" opacity=".65"><ellipse cx="92" cy="875" rx="11" ry="4" transform="rotate(-25 92 875)"/><ellipse cx="560" cy="925" rx="12" ry="4" transform="rotate(20 560 925)"/><ellipse cx="60" cy="942" rx="10" ry="4"/><ellipse cx="459" cy="760" rx="8" ry="3"/></g>
+</svg>
