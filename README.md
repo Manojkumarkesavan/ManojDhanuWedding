@@ -21,8 +21,8 @@ The invitation uses four content-led scenes: Welcome, Save the Date (including t
   - If you replace `beach.svg`, `beach-mobile.svg`, `mandapam.svg` or `mandapam-mobile.svg`, update the waterline, roof and garland measurements at the top of `main.js` (`beachArt`, `MANDAPAM_ROOF`). The animated shimmer and the heading clearance depend on them.
 - **Placeholder assets are currently installed.** Replace them before guest release:
   - **Couple art:** `assets/images/couple/couple-beach.svg`, `couple-wedding.svg`, `couple-portrait.svg` and `motorcycle.svg` are original, generic flat illustrations. Replace them with flat-style illustrations of the couple (see "Couple artwork" below), keeping the same file names or updating the paths in `config.js`. Couple art is capped at 28% of the viewport height so the closing scene fits on one screen.
-  - **Gallery:** 21 pre-wedding photos of Manoj and Dhanushri live together in `assets/gallery/`. Original JPGs are kept alongside optimized WebP display and thumbnail files; no stock photos are used.
-  - **Music:** `assets/music/wedding-background.m4a` is an original synthesized veena-and-tanpura loop in raga Mohanam (58 seconds, royalty-free). To use a different licensed track, change `music` in `config.js`. The player never autoplays.
+  - **Gallery:** The seven recently retouched pre-wedding photos are shown from optimized WebP display and thumbnail files in `assets/gallery/`; original JPGs are preserved. No stock photos are used.
+  - **Music:** The configured track is attempted on page load and loops. Browsers may block audible autoplay until a guest interacts; opening, skipping or dismissing the intro retries playback within that gesture. The music button remains available to pause and resume. To use a different licensed track, change `music` in `config.js`.
 - **Gallery layout:** `1Q7A0233` always comes first; the remaining photos are randomized each time the gallery loads. The polaroid board adapts its columns and card size to the photo count and available space. On desktop and tablet the photos are scattered and tilted; hovering lifts one, tapping opens it full screen and "Shuffle photos" re-scatters them. On phones (and short landscape screens) they form a stack: swipe the top photo away or tap "Next photo", and tap to open. Keep captions to a few words; they appear on the polaroid strip. Previews are square crops of the thumbnail; the full photo is shown uncropped in the viewer.
 - Confirm the Google Maps search result with the venue before sharing; no unverified place ID or coordinates have been supplied.
 
@@ -144,7 +144,11 @@ All three are licensed under the SIL Open Font License, and their licence files 
 
 Every section is at least one full screen tall, so the navigation links, "Join Our Journey" and "Scroll to explore" land on exactly one scene. Sections with more content, such as Save the Date on most devices, grow taller and scroll on. Portrait layouts switch to dedicated mobile SVG compositions; the narrowest screens stack the event dates. Navigation and the photo viewer account for short viewports, touch controls and safe areas. Optional character artwork occupies its own layout space rather than covering the text.
 
+On load, a layered envelope invitation opens with a slow flap-and-card reveal when tapped; guests can skip the intro or press Escape. The page remains available if JavaScript or native dialog support is unavailable.
+
 GSAP respects `prefers-reduced-motion`, with a readable static layout if animation libraries are unavailable. The motorcycle uses one scroll-linked timeline for its entrance, travel and fade-out; reduced-motion mode leaves it centered and visible. A single flattened motorcycle image cannot animate its wheels independently: separate wheel layers would be needed for that effect.
+
+On page load, a full-screen, decorative heart shower starts and continues while guests scroll, stopping at the end of the page. It never blocks controls and is skipped when reduced motion is enabled.
 
 Browser verification covers viewport sizes from 320px to 2560px wide, including phone landscape. With the placeholder assets, headed Chrome checks at six sizes confirm that every menu link lands at the top of a full-screen section, the polaroid gallery (shuffle, hover, swipe stack) and lightbox work, the music plays, and there are no console errors or failed requests. Physical iPhone Safari and Android Chrome checks, and the final couple artwork, photos and music, should still be verified before guest release.
 

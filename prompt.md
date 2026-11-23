@@ -527,11 +527,12 @@ On click, build CRLF-joined lines:
 
 Escape `\ , ;` and newlines in text fields. Download as a `text/calendar;charset=utf-8` Blob named `manoj-dhanushri-muhurtham.ics`, then revoke the object URL after 1s. If the date is invalid, alert instead.
 
-### 8.8 Music (single shared audio, never autoplay)
+### 8.8 Music (single shared audio, autoplay attempt with gesture fallback)
 
 Only when `wedding.music` is set:
 - Un-hide `#music-control` and set `audio.src`.
-- The button toggles play and pause. `await audio.play()` inside try/catch; on failure, show "Music could not be played." in the status span.
+- Set `audio.loop = true` and attempt playback on page load. Browsers may reject audible autoplay; ignore `NotAllowedError` and retry synchronously inside the intro open, skip, or Escape gesture. The button toggles play and pause.
+- On other playback failures, show "Music could not be played." in the status span.
 - Keep the `aria-label` fixed as "Background music"; sync `aria-pressed` and the icon (♫ / Ⅱ) on the `play` and `pause` events. Handle the `error` event.
 - The control is fixed at the bottom-right with safe-area offsets: a 50px teal circle with a gold border.
 
@@ -548,6 +549,8 @@ if (gallery.entries.length) {
 ```
 
 ### 8.10 Animation (GSAP; content is visible without it)
+
+On initialization, open the native `#invitation-intro` dialog. Its envelope button performs a slow, layered reveal: the wax seal releases, the flap opens, and the invitation card rises before the dialog fades away (about 3.8 seconds total). The Skip intro button or Escape closes it immediately. With reduced motion, opening closes immediately. If dialog support is unavailable, the dialog remains hidden and the page works normally.
 
 ```js
 if (window.gsap && window.ScrollTrigger) {
@@ -574,6 +577,7 @@ if (window.gsap && window.ScrollTrigger) {
 - `matchMedia` reverts all tweens automatically when reduced motion is turned on.
 - Use function-based `x` values with `invalidateOnRefresh` so resizing recalculates the motorcycle path.
 - A flattened motorcycle image cannot spin its wheels. Note this in the README; separate wheel layers would be required.
+- Page load starts a full-screen decorative heart shower. Hearts keep falling as guests scroll, stop at the end of the page, are aria-hidden and pointer-events-free, and are skipped under reduced motion.
 
 ---
 
@@ -780,7 +784,7 @@ At each size:
 - [ ] The countdown ticks; with a past date it shows "Our forever has begun." and stops.
 - [ ] The calendar button downloads a valid `.ics` with `DTSTART:20261214T010000Z`.
 - [ ] Maps opens in a new tab with the search URL.
-- [ ] With `music` set, the control appears with no autoplay; play, pause and the aria states work, and a bad file shows the error.
+- [ ] With `music` set, the player attempts autoplay and loops; verify gesture fallback when browser autoplay is blocked, play/pause and aria states, and a bad file shows the error.
 - [ ] With temporary test gallery entries (not committed):
   - the board fits one screen on desktop and tablet; Shuffle moves the polaroids; hover lifts and straightens a card;
   - on a phone the stack swipes to the next photo without opening the lightbox, Next photo advances, and a tap opens the top photo;
