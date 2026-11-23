@@ -11,7 +11,7 @@ export const wedding = {
   muhurtham: { day: '14', month: 'December', year: '2026', time: '6:30 AM onwards', iso: '2026-12-14T06:30:00+05:30' },
   // Placeholder assets: original illustrations and an original instrumental (Mohanam, veena and tanpura)
   // made for this site. TODO: Replace with the couple's approved artwork and chosen music when ready.
-  music: 'music/Anbil-Avan-Bgm.mp3',
+  music: 'music/Kalla-Nikkiriye-song-SnapYT.App.mp3',
   coupleBeach: 'images/couple/couple-beach.svg',
   coupleWedding: 'images/couple/couple-wedding.svg',
   couplePortrait: 'images/couple/couple-portrait.svg',
@@ -34,27 +34,27 @@ export const wedding = {
 export const gallery = {
   // Keep the original JPGs and optimized WebP display images together in assets/gallery/.
   entries: [
-    { id: '1Q7A0233', image: 'gallery/1Q7A0233.webp', thumbnail: 'gallery/1Q7A0233-thumb.webp',
+    { id: '1Q7A0233', image: 'gallery/0233.webp', thumbnail: 'gallery/0233-thumb.webp',
       caption: 'By the shore', alt: 'Manoj and Dhanushri standing together on a sunny beach',
       displayOrder: 1, orientation: 'portrait' },
-    { id: '1Q7A0287', image: 'gallery/1Q7A0287.webp', thumbnail: 'gallery/1Q7A0287-thumb.webp',
-      caption: 'A barefoot stroll', alt: 'Manoj and Dhanushri walking barefoot along a sandy beach',
-      displayOrder: 6, orientation: 'portrait' },
-    { id: '1Q7A0924', image: 'gallery/1Q7A0924.webp', thumbnail: 'gallery/1Q7A0924-thumb.webp',
-      caption: 'At the water’s edge', alt: 'Manoj and Dhanushri standing together in shallow surf',
-      displayOrder: 15, orientation: 'portrait' },
-    { id: '1Q7A1367', image: 'gallery/1Q7A1367.webp', thumbnail: 'gallery/1Q7A1367-thumb.webp',
-      caption: 'A tender moment', alt: 'Manoj and Dhanushri sharing a quiet moment on shaded steps',
+    { id: '1Q7A0924', image: 'gallery/0924.webp', thumbnail: 'gallery/0924-thumb.webp',
+      caption: 'A barefoot stroll', alt: 'Manoj and Dhanushri walking barefoot in the surf',
+      displayOrder: 2, orientation: 'portrait' },
+    { id: '1Q7A1207', image: 'gallery/1207.webp', thumbnail: 'gallery/1207-thumb.webp',
+      caption: 'Hand in hand', alt: 'Manoj and Dhanushri walking hand in hand beside a pond, seen from behind',
+      displayOrder: 3, orientation: 'portrait' },
+    { id: '1Q7A1246', image: 'gallery/1246.webp', thumbnail: 'gallery/1246-thumb.webp',
+      caption: 'A tender moment', alt: 'Manoj and Dhanushri sharing a quiet moment seated on stone steps',
+      displayOrder: 4, orientation: 'portrait' },
+    { id: '1Q7A1606', image: 'gallery/1606.webp', thumbnail: 'gallery/1606-thumb.webp',
+      caption: 'A playful splash', alt: 'A close-up of Manoj holding Dhanushri’s foot above the water',
       displayOrder: 5, orientation: 'portrait' },
-    { id: '1Q7A1606', image: 'gallery/1Q7A1606.webp', thumbnail: 'gallery/1Q7A1606-thumb.webp',
-      caption: 'Hand in hand', alt: 'Manoj and Dhanushri holding hands over the water',
-      displayOrder: 12, orientation: 'portrait' },
-    { id: '1Q7A1694', image: 'gallery/1Q7A1694.webp', thumbnail: 'gallery/1Q7A1694-thumb.webp',
-      caption: 'By the waterside', alt: 'Manoj and Dhanushri walking beside a pond',
-      displayOrder: 7, orientation: 'portrait' },
-    { id: '1Q7A1765', image: 'gallery/1Q7A1765.webp', thumbnail: 'gallery/1Q7A1765-thumb.webp',
-      caption: 'Along the water', alt: 'Manoj and Dhanushri walking together beside the pond',
-      displayOrder: 14, orientation: 'portrait' }
+    { id: '1Q7A1638', image: 'gallery/1638.webp', thumbnail: 'gallery/1638-thumb.webp',
+      caption: 'Steps together', alt: 'Manoj and Dhanushri holding hands as they walk down stone steps',
+      displayOrder: 6, orientation: 'portrait' },
+    { id: '1Q7A0975', image: 'gallery/1Q7A0975.webp', thumbnail: 'gallery/1Q7A0975-thumb.webp',
+      caption: 'A seaside surprise', alt: 'Manoj hides a bouquet behind his back as Dhanushri turns toward him beneath a beach umbrella',
+      displayOrder: 7, orientation: 'landscape' }
   ],
   watermark: '', // Optional subtle watermark, e.g. 'Manoj & Dhanushri'
 };
