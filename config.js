@@ -8,7 +8,7 @@ export const wedding = {
   // TODO: Confirm the Google Maps search result with the venue before sharing.
   mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Sri+Lakshmi+Aandal+Maaligai%2C+Chromepet%2C+Chennai%2C+Tamil+Nadu%2C+India',
   reception: { day: '13', month: 'December', year: '2026', time: '6:30 PM onwards' },
-  muhurtham: { day: '14', month: 'December', year: '2026', time: '6:30 AM onwards', iso: '2026-12-14T06:30:00+05:30' },
+  muhurtham: { day: '14', month: 'December', year: '2026', time: '6:00 AM onwards', iso: '2026-12-14T06:30:00+05:30' },
   // Placeholder assets: original illustrations and an original instrumental (Mohanam, veena and tanpura)
   // made for this site. TODO: Replace with the couple's approved artwork and chosen music when ready.
   music: 'music/Kalla-Nikkiriye-song-SnapYT.App.mp3',
