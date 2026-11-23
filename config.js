@@ -1,7 +1,7 @@
 export const wedding = {
   groom: 'Manojkumar',
   bride: 'Dhanushri',
-  names: 'Manoj & Dhanushri',
+  names: 'Manojkumar & Dhanushri',
   venue: 'Sri Lakshmi Aandal Maaligai',
   locality: 'Chromepet, Chennai',
   address: 'Chromepet, Chennai, Tamil Nadu, India',
